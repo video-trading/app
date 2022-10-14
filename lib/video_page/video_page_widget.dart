@@ -206,36 +206,31 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Expanded(
-                            child: InkWell(
-                              onDoubleTap: () async {
+                            child: FFButtonWidget(
+                              onPressed: () async {
                                 context.pushNamed('Payment');
                               },
-                              child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
-                                },
-                                text: formatNumber(
-                                  videoPageVideoRecord!.price!,
-                                  formatType: FormatType.custom,
-                                  format: 'HKD \$###.0#',
-                                  locale: '',
+                              text: formatNumber(
+                                videoPageVideoRecord!.price!,
+                                formatType: FormatType.custom,
+                                format: 'HKD \$###.0#',
+                                locale: '',
+                              ),
+                              options: FFButtonOptions(
+                                height: 40,
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .subtitle2
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                    ),
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1,
                                 ),
-                                options: FFButtonOptions(
-                                  height: 40,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Colors.white,
-                                      ),
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
+                                borderRadius: BorderRadius.circular(8),
                               ),
                             ),
                           ),

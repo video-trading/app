@@ -92,7 +92,7 @@ class _CommentBottomSheetWidgetState extends State<CommentBottomSheetWidget> {
                       size: 30,
                     ),
                     onPressed: () async {
-                      context.pop();
+                      Navigator.pop(context);
                     },
                   ),
                 ],
