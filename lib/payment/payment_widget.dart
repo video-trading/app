@@ -186,6 +186,8 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                         showSnackbar(context, 'Success!');
                         transactionId = paymentResponse.transactionId!;
 
+                        context.goNamed('PaymentConfirmPage');
+
                         setState(() {});
                       },
                       text: 'Confirm & Chat',

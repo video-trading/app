@@ -105,6 +105,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Payment',
               path: 'payment',
               builder: (context, params) => PaymentWidget(),
+            ),
+            FFRoute(
+              name: 'PaymentConfirmPage',
+              path: 'paymentConfirmPage',
+              builder: (context, params) => PaymentConfirmPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
