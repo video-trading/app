@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "190602066490",
+    "project_id": "video2trade-5723a",
+    "storage_bucket": "video2trade-5723a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190602066490:android:f1f06e0bbb30c00136d303",
+        "android_client_info": {
+          "package_name": "com.mycompany.video2trade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190602066490-ahi2ol4q5o4ifauk6nbv21m2up8bgnoc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.video2trade",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "190602066490-b6l8bbfg8ru383jvb9cnefcu4ifu79ev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCglrAqIxdg-VXIeVf6O6Sym__MxRkk4ZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190602066490-b6l8bbfg8ru383jvb9cnefcu4ifu79ev.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "190602066490-chehc268kouikonan2ip30s7g4e0lfvq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.video2trade"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

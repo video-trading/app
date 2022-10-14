@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>190602066490-chehc268kouikonan2ip30s7g4e0lfvq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.190602066490-chehc268kouikonan2ip30s7g4e0lfvq</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>190602066490-ahi2ol4q5o4ifauk6nbv21m2up8bgnoc.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAA-5Xk5RSZTYdik-II0l4YU4q-DUpMafE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>190602066490</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mycompany.video2trade</string>
+	<key>PROJECT_ID</key>
+	<string>video2trade-5723a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>video2trade-5723a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:190602066490:ios:dd71fac6ea90a74936d303</string>
+</dict>
+</plist>
