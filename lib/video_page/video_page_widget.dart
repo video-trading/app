@@ -1,4 +1,5 @@
 import '../backend/backend.dart';
+import '../components/comment_bottom_sheet_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -86,6 +87,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                           showControls: true,
                           allowFullScreen: true,
                           allowPlaybackSpeedMenu: false,
+                          lazyLoad: false,
                         ),
                       ],
                     ),
@@ -206,7 +208,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                           Expanded(
                             child: InkWell(
                               onDoubleTap: () async {
-                                context.pop();
+                                context.pushNamed('Payment');
                               },
                               child: FFButtonWidget(
                                 onPressed: () {
@@ -277,54 +279,66 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                         commentRowCommentRecordList.isNotEmpty
                             ? commentRowCommentRecordList.first
                             : null;
-                    return Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  'comments',
-                                  style: FlutterFlowTheme.of(context).bodyText1,
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12, 0, 0, 0),
-                                  child: Text(
-                                    'Hello World',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText2,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                              child: Row(
+                    return InkWell(
+                      onTap: () async {
+                        await showModalBottomSheet(
+                          isScrollControlled: true,
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).primaryBackground,
+                          context: context,
+                          builder: (context) {
+                            return Padding(
+                              padding: MediaQuery.of(context).viewInsets,
+                              child: CommentBottomSheetWidget(),
+                            );
+                          },
+                        ).then((value) => setState(() {}));
+                      },
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
                                 mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Icon(
-                                    Icons.tag_faces_outlined,
-                                    color: Colors.black,
-                                    size: 24,
-                                  ),
                                   Text(
-                                    'Hello World',
+                                    'comments',
                                     style:
                                         FlutterFlowTheme.of(context).bodyText1,
                                   ),
                                 ],
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.tag_faces_outlined,
+                                      color: Colors.black,
+                                      size: 24,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10, 0, 0, 0),
+                                      child: Text(
+                                        commentRowCommentRecord!.content!,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     );
                   },
                 ),

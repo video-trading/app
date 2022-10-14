@@ -100,6 +100,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'VideoPage',
               path: 'videoPage',
               builder: (context, params) => VideoPageWidget(),
+            ),
+            FFRoute(
+              name: 'Payment',
+              path: 'payment',
+              builder: (context, params) => PaymentWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
