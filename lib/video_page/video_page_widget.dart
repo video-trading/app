@@ -1,5 +1,4 @@
 import '../backend/backend.dart';
-import '../backend/braintree/payment_manager.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -16,7 +15,6 @@ class VideoPageWidget extends StatefulWidget {
 }
 
 class _VideoPageWidgetState extends State<VideoPageWidget> {
-  String? transactionId;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -206,81 +204,36 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Expanded(
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                final transacAmount = 10.0;
-                                final transacDisplayName = 'abcde';
-                                if (kIsWeb) {
-                                  showSnackbar(context,
-                                      'Payments not yet supported on web.');
-                                  return;
-                                }
-
-                                final dropInRequest = BraintreeDropInRequest(
-                                  cardEnabled: true,
-                                  clientToken: braintreeClientToken(),
-                                  collectDeviceData: true,
-                                  paypalRequest: BraintreePayPalRequest(
-                                    amount: transacAmount.toString(),
-                                    currencyCode: 'HKD',
-                                    displayName: transacDisplayName,
-                                  ),
-                                  applePayRequest: BraintreeApplePayRequest(
-                                    amount: transacAmount,
-                                    currencyCode: 'HKD',
-                                    countryCode: 'HKSAR',
-                                    displayName: transacDisplayName,
-                                    appleMerchantID: appleMerchantId(),
-                                  ),
-                                );
-                                final dropInResult =
-                                    await BraintreeDropIn.start(dropInRequest);
-                                if (dropInResult == null) {
-                                  return;
-                                }
-                                showSnackbar(
-                                  context,
-                                  'Processing payment...',
-                                  duration: 10,
-                                  loading: true,
-                                );
-                                final paymentResponse =
-                                    await processBraintreePayment(
-                                  transacAmount,
-                                  dropInResult.paymentMethodNonce.nonce,
-                                  dropInResult.deviceData,
-                                );
-                                if (paymentResponse.errorMessage != null) {
-                                  showSnackbar(context,
-                                      'Error: ${paymentResponse.errorMessage}');
-                                  return;
-                                }
-                                showSnackbar(context, 'Success!');
-                                transactionId = paymentResponse.transactionId!;
-
-                                setState(() {});
+                            child: InkWell(
+                              onDoubleTap: () async {
+                                context.pop();
                               },
-                              text: formatNumber(
-                                videoPageVideoRecord!.price!,
-                                formatType: FormatType.custom,
-                                format: 'HKD \$###.0#',
-                                locale: '',
-                              ),
-                              options: FFButtonOptions(
-                                height: 40,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                    ),
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1,
+                              child: FFButtonWidget(
+                                onPressed: () {
+                                  print('Button pressed ...');
+                                },
+                                text: formatNumber(
+                                  videoPageVideoRecord!.price!,
+                                  formatType: FormatType.custom,
+                                  format: 'HKD \$###.0#',
+                                  locale: '',
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                options: FFButtonOptions(
+                                  height: 40,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .subtitle2
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                      ),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
                               ),
                             ),
                           ),
@@ -290,283 +243,93 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                   ],
                 ),
               ),
-              Material(
-                color: Colors.transparent,
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(0),
-                    bottomRight: Radius.circular(0),
-                    topLeft: Radius.circular(16),
-                    topRight: Radius.circular(16),
+              Divider(),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                child: StreamBuilder<List<CommentRecord>>(
+                  stream: queryCommentRecord(
+                    queryBuilder: (commentRecord) => commentRecord
+                        .where('video',
+                            isEqualTo: videoPageVideoRecord!.reference)
+                        .orderBy('created_at', descending: true),
+                    singleRecord: true,
                   ),
-                ),
-                child: Container(
-                  width: double.infinity,
-                  height: 400,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(0),
-                      bottomRight: Radius.circular(0),
-                      topLeft: Radius.circular(16),
-                      topRight: Radius.circular(16),
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                        child: Container(
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
                           width: 50,
-                          height: 4,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFDBE2E7),
-                            borderRadius: BorderRadius.circular(8),
+                          height: 50,
+                          child: CircularProgressIndicator(
+                            color: FlutterFlowTheme.of(context).primaryColor,
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
-                        child: Row(
+                      );
+                    }
+                    List<CommentRecord> commentRowCommentRecordList =
+                        snapshot.data!;
+                    // Return an empty Container when the document does not exist.
+                    if (snapshot.data!.isEmpty) {
+                      return Container();
+                    }
+                    final commentRowCommentRecord =
+                        commentRowCommentRecordList.isNotEmpty
+                            ? commentRowCommentRecordList.first
+                            : null;
+                    return Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Column(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Choose Category',
-                              style:
-                                  FlutterFlowTheme.of(context).title2.override(
-                                        fontFamily: 'Outfit',
-                                        color: Color(0xFF090F13),
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 4, 16, 0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(16),
-                                  border: Border.all(
-                                    color: Color(0xFFF1F4F8),
-                                    width: 2,
-                                  ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'comments',
+                                  style: FlutterFlowTheme.of(context).bodyText1,
                                 ),
-                                child: Padding(
+                                Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 12, 16, 12),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'Category Name',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Outfit',
-                                              color: Color(0xFF090F13),
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                      ),
-                                      Icon(
-                                        Icons.chevron_right_rounded,
-                                        color: Color(0xFF7C8791),
-                                        size: 24,
-                                      ),
-                                    ],
+                                      12, 0, 0, 0),
+                                  child: Text(
+                                    'Hello World',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText2,
                                   ),
                                 ),
-                              ),
+                              ],
                             ),
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(16),
-                                  border: Border.all(
-                                    color: Color(0xFFF1F4F8),
-                                    width: 2,
+                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.tag_faces_outlined,
+                                    color: Colors.black,
+                                    size: 24,
                                   ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 12, 16, 12),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'Category Name',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Outfit',
-                                              color: Color(0xFF090F13),
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                      ),
-                                      Icon(
-                                        Icons.chevron_right_rounded,
-                                        color: Color(0xFF7C8791),
-                                        size: 24,
-                                      ),
-                                    ],
+                                  Text(
+                                    'Hello World',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
                                   ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(16),
-                                  border: Border.all(
-                                    color: Color(0xFFF1F4F8),
-                                    width: 2,
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 12, 16, 12),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'Category Name',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Outfit',
-                                              color: Color(0xFF090F13),
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                      ),
-                                      Icon(
-                                        Icons.chevron_right_rounded,
-                                        color: Color(0xFF7C8791),
-                                        size: 24,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(16),
-                                  border: Border.all(
-                                    color: Color(0xFFF1F4F8),
-                                    width: 2,
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 12, 16, 12),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'Category Name',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Outfit',
-                                              color: Color(0xFF090F13),
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                      ),
-                                      Icon(
-                                        Icons.chevron_right_rounded,
-                                        color: Color(0xFF7C8791),
-                                        size: 24,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(16),
-                                  border: Border.all(
-                                    color: Color(0xFFF1F4F8),
-                                    width: 2,
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 12, 16, 12),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'Category Name',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Outfit',
-                                              color: Color(0xFF090F13),
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                      ),
-                                      Icon(
-                                        Icons.chevron_right_rounded,
-                                        color: Color(0xFF7C8791),
-                                        size: 24,
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                ],
                               ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    );
+                  },
                 ),
               ),
+              Divider(),
             ],
           ),
         );
