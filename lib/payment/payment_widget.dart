@@ -378,13 +378,6 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                         currencyCode: 'USD',
                         displayName: transacDisplayName,
                       ),
-                      applePayRequest: BraintreeApplePayRequest(
-                        amount: transacAmount,
-                        currencyCode: 'USD',
-                        countryCode: 'US',
-                        displayName: transacDisplayName,
-                        appleMerchantID: appleMerchantId(),
-                      ),
                     );
                     final dropInResult =
                         await BraintreeDropIn.start(dropInRequest);
