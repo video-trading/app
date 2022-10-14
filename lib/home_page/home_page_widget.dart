@@ -227,7 +227,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 2),
                           child: InkWell(
                             onTap: () async {
-                              context.pop();
+                              context.pushNamed('VideoPage');
                             },
                             child: Container(
                               width: 100,
@@ -239,10 +239,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Hero(
-                                    tag: 'productShoe',
+                                    tag: listViewVideoRecord.cover!,
                                     transitionOnUserGestures: true,
                                     child: Image.network(
-                                      'https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_880/e5e376f2-7b53-49fc-9720-0e1d69ff0fb9/zion-1-basketball-shoes-bJ0hLJ.png',
+                                      listViewVideoRecord.cover!,
                                       width: double.infinity,
                                       height: 300,
                                       fit: BoxFit.cover,

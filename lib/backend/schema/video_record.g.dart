@@ -83,6 +83,13 @@ class _$VideoRecordSerializer implements StructuredSerializer<VideoRecord> {
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
     }
+    value = object.price;
+    if (value != null) {
+      result
+        ..add('price')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(double)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -145,6 +152,10 @@ class _$VideoRecordSerializer implements StructuredSerializer<VideoRecord> {
                       BuiltList, const [const FullType(String)]))!
               as BuiltList<Object?>);
           break;
+        case 'price':
+          result.price = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -178,6 +189,8 @@ class _$VideoRecord extends VideoRecord {
   @override
   final BuiltList<String>? tags;
   @override
+  final double? price;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$VideoRecord([void Function(VideoRecordBuilder)? updates]) =>
@@ -193,6 +206,7 @@ class _$VideoRecord extends VideoRecord {
       this.cover,
       this.video,
       this.tags,
+      this.price,
       this.ffRef})
       : super._();
 
@@ -216,6 +230,7 @@ class _$VideoRecord extends VideoRecord {
         cover == other.cover &&
         video == other.video &&
         tags == other.tags &&
+        price == other.price &&
         ffRef == other.ffRef;
   }
 
@@ -229,15 +244,17 @@ class _$VideoRecord extends VideoRecord {
                         $jc(
                             $jc(
                                 $jc(
-                                    $jc($jc(0, title.hashCode),
-                                        description.hashCode),
-                                    author.hashCode),
-                                createdAt.hashCode),
-                            updatedAt.hashCode),
-                        likes.hashCode),
-                    cover.hashCode),
-                video.hashCode),
-            tags.hashCode),
+                                    $jc(
+                                        $jc($jc(0, title.hashCode),
+                                            description.hashCode),
+                                        author.hashCode),
+                                    createdAt.hashCode),
+                                updatedAt.hashCode),
+                            likes.hashCode),
+                        cover.hashCode),
+                    video.hashCode),
+                tags.hashCode),
+            price.hashCode),
         ffRef.hashCode));
   }
 
@@ -253,6 +270,7 @@ class _$VideoRecord extends VideoRecord {
           ..add('cover', cover)
           ..add('video', video)
           ..add('tags', tags)
+          ..add('price', price)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -297,6 +315,10 @@ class VideoRecordBuilder implements Builder<VideoRecord, VideoRecordBuilder> {
   ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
   set tags(ListBuilder<String>? tags) => _$this._tags = tags;
 
+  double? _price;
+  double? get price => _$this._price;
+  set price(double? price) => _$this._price = price;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -317,6 +339,7 @@ class VideoRecordBuilder implements Builder<VideoRecord, VideoRecordBuilder> {
       _cover = $v.cover;
       _video = $v.video;
       _tags = $v.tags?.toBuilder();
+      _price = $v.price;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -351,6 +374,7 @@ class VideoRecordBuilder implements Builder<VideoRecord, VideoRecordBuilder> {
               cover: cover,
               video: video,
               tags: _tags?.build(),
+              price: price,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

@@ -33,6 +33,18 @@
             </array>
         </dict>
 
+
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+            <string>com.mycompany.video2trade.braintree</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>com.mycompany.video2trade.braintree</string>
+            </array>
+        </dict>
+
         <dict>
         <key>CFBundleTypeRole</key>
         <string>Editor</string>

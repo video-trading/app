@@ -31,6 +31,8 @@ abstract class VideoRecord implements Built<VideoRecord, VideoRecordBuilder> {
 
   BuiltList<String>? get tags;
 
+  double? get price;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -41,7 +43,8 @@ abstract class VideoRecord implements Built<VideoRecord, VideoRecordBuilder> {
     ..likes = 0
     ..cover = ''
     ..video = ''
-    ..tags = ListBuilder();
+    ..tags = ListBuilder()
+    ..price = 0.0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Video');
@@ -67,6 +70,7 @@ abstract class VideoRecord implements Built<VideoRecord, VideoRecordBuilder> {
           ..cover = snapshot.data['cover']
           ..video = snapshot.data['video']
           ..tags = safeGet(() => ListBuilder(snapshot.data['tags']))
+          ..price = snapshot.data['price']?.toDouble()
           ..ffRef = VideoRecord.collection.doc(snapshot.objectID),
       );
 
@@ -104,6 +108,7 @@ Map<String, dynamic> createVideoRecordData({
   int? likes,
   String? cover,
   String? video,
+  double? price,
 }) {
   final firestoreData = serializers.toFirestore(
     VideoRecord.serializer,
@@ -117,7 +122,8 @@ Map<String, dynamic> createVideoRecordData({
         ..likes = likes
         ..cover = cover
         ..video = video
-        ..tags = null,
+        ..tags = null
+        ..price = price,
     ),
   );
 
