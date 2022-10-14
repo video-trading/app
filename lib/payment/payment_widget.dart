@@ -106,17 +106,6 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        AuthUserStreamWidget(
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(50),
-                            child: Image.network(
-                              currentUserPhoto,
-                              width: 50,
-                              height: 50,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                           child: AuthUserStreamWidget(
