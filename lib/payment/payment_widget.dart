@@ -37,8 +37,8 @@ class _PaymentWidgetState extends State<PaymentWidget> {
             color: FlutterFlowTheme.of(context).secondaryText,
             size: 30,
           ),
-          onPressed: () {
-            print('IconButton pressed ...');
+          onPressed: () async {
+            context.pop();
           },
         ),
         title: Text(
