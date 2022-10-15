@@ -11,5 +11,5 @@ Future updateOwner(DocumentReference videoId) async {
   // Add your function code here!
   await FirebaseFunctions.instance
       .httpsCallable("updateOwner")
-      .call({"videoId": videoId});
+      .call({"videoId": videoId.id});
 }
