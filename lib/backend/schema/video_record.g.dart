@@ -90,6 +90,13 @@ class _$VideoRecordSerializer implements StructuredSerializer<VideoRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(double)));
     }
+    value = object.owner;
+    if (value != null) {
+      result
+        ..add('owner')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -156,6 +163,10 @@ class _$VideoRecordSerializer implements StructuredSerializer<VideoRecord> {
           result.price = serializers.deserialize(value,
               specifiedType: const FullType(double)) as double?;
           break;
+        case 'owner':
+          result.owner = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -191,6 +202,8 @@ class _$VideoRecord extends VideoRecord {
   @override
   final double? price;
   @override
+  final String? owner;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$VideoRecord([void Function(VideoRecordBuilder)? updates]) =>
@@ -207,6 +220,7 @@ class _$VideoRecord extends VideoRecord {
       this.video,
       this.tags,
       this.price,
+      this.owner,
       this.ffRef})
       : super._();
 
@@ -231,6 +245,7 @@ class _$VideoRecord extends VideoRecord {
         video == other.video &&
         tags == other.tags &&
         price == other.price &&
+        owner == other.owner &&
         ffRef == other.ffRef;
   }
 
@@ -245,16 +260,18 @@ class _$VideoRecord extends VideoRecord {
                             $jc(
                                 $jc(
                                     $jc(
-                                        $jc($jc(0, title.hashCode),
-                                            description.hashCode),
-                                        author.hashCode),
-                                    createdAt.hashCode),
-                                updatedAt.hashCode),
-                            likes.hashCode),
-                        cover.hashCode),
-                    video.hashCode),
-                tags.hashCode),
-            price.hashCode),
+                                        $jc(
+                                            $jc($jc(0, title.hashCode),
+                                                description.hashCode),
+                                            author.hashCode),
+                                        createdAt.hashCode),
+                                    updatedAt.hashCode),
+                                likes.hashCode),
+                            cover.hashCode),
+                        video.hashCode),
+                    tags.hashCode),
+                price.hashCode),
+            owner.hashCode),
         ffRef.hashCode));
   }
 
@@ -271,6 +288,7 @@ class _$VideoRecord extends VideoRecord {
           ..add('video', video)
           ..add('tags', tags)
           ..add('price', price)
+          ..add('owner', owner)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -319,6 +337,10 @@ class VideoRecordBuilder implements Builder<VideoRecord, VideoRecordBuilder> {
   double? get price => _$this._price;
   set price(double? price) => _$this._price = price;
 
+  String? _owner;
+  String? get owner => _$this._owner;
+  set owner(String? owner) => _$this._owner = owner;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -340,6 +362,7 @@ class VideoRecordBuilder implements Builder<VideoRecord, VideoRecordBuilder> {
       _video = $v.video;
       _tags = $v.tags?.toBuilder();
       _price = $v.price;
+      _owner = $v.owner;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -375,6 +398,7 @@ class VideoRecordBuilder implements Builder<VideoRecord, VideoRecordBuilder> {
               video: video,
               tags: _tags?.build(),
               price: price,
+              owner: owner,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

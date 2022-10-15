@@ -20,8 +20,8 @@ class _PaymentWidgetState extends State<PaymentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<List<VideoRecord>>(
-      stream: queryVideoRecord(
+    return FutureBuilder<List<VideoRecord>>(
+      future: queryVideoRecordOnce(
         singleRecord: true,
       ),
       builder: (context, snapshot) {
@@ -190,7 +190,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
 
                         setState(() {});
                       },
-                      text: 'Confirm & Chat',
+                      text: 'Confirm',
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 50,

@@ -1,8 +1,8 @@
 import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,8 +19,8 @@ class _PaymentConfirmPageWidgetState extends State<PaymentConfirmPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<List<VideoRecord>>(
-      stream: queryVideoRecord(
+    return FutureBuilder<List<VideoRecord>>(
+      future: queryVideoRecordOnce(
         singleRecord: true,
       ),
       builder: (context, snapshot) {
@@ -52,30 +52,6 @@ class _PaymentConfirmPageWidgetState extends State<PaymentConfirmPageWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 24, 20, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      FlutterFlowIconButton(
-                        borderColor: Colors.transparent,
-                        borderRadius: 30,
-                        buttonSize: 46,
-                        fillColor:
-                            FlutterFlowTheme.of(context).primaryBackground,
-                        icon: Icon(
-                          Icons.close_rounded,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 20,
-                        ),
-                        onPressed: () async {
-                          context.pop();
-                        },
-                      ),
-                    ],
-                  ),
-                ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                   child: Card(
@@ -140,6 +116,10 @@ class _PaymentConfirmPageWidgetState extends State<PaymentConfirmPageWidget> {
                       children: [
                         FFButtonWidget(
                           onPressed: () async {
+                            await actions.updateOwner(
+                              paymentConfirmPageVideoRecord!.reference,
+                            );
+
                             context.goNamed('HomePage');
                           },
                           text: 'Go Home',
