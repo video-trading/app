@@ -95,7 +95,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                           showControls: true,
                           allowFullScreen: true,
                           allowPlaybackSpeedMenu: false,
-                          lazyLoad: false,
+                          lazyLoad: true,
                         ),
                       ],
                     ),
@@ -106,7 +106,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                         children: [
                           Expanded(
                             child: Text(
-                              'Class Name',
+                              videoPageVideoRecord!.title!,
                               style: FlutterFlowTheme.of(context).title2,
                             ),
                           ),
