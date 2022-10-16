@@ -19,6 +19,12 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
+  void initState() {
+    super.initState();
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'VideoPage'});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<VideoRecord>>(
       future: queryVideoRecordOnce(
@@ -53,6 +59,8 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
             automaticallyImplyLeading: false,
             leading: InkWell(
               onTap: () async {
+                logFirebaseEvent('VIDEO_PAGE_PAGE_Icon_gyiadnrv_ON_TAP');
+                logFirebaseEvent('Icon_Navigate-Back');
                 context.pop();
               },
               child: Icon(
@@ -208,6 +216,10 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                           Expanded(
                             child: FFButtonWidget(
                               onPressed: () async {
+                                logFirebaseEvent(
+                                    'VIDEO_PAGE_PAGE_PURCHASE_BTN_ON_TAP');
+                                logFirebaseEvent('Button_Navigate-To');
+
                                 context.pushNamed('Payment');
                               },
                               text: formatNumber(
@@ -276,6 +288,8 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                             : null;
                     return InkWell(
                       onTap: () async {
+                        logFirebaseEvent('VIDEO_PAGE_PAGE_CommentRow_ON_TAP');
+                        logFirebaseEvent('CommentRow_Bottom-Sheet');
                         await showModalBottomSheet(
                           isScrollControlled: true,
                           backgroundColor:

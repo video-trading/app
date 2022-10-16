@@ -92,6 +92,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
           !anim.applyInitialState),
       this,
     );
+
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'HomePage'});
   }
 
   @override
@@ -107,13 +109,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
+          logFirebaseEvent('HOME_FloatingActionButton_d7h4q5z5_ON_TA');
+          logFirebaseEvent('FloatingActionButton_Navigate-To');
+
           context.pushNamed('UploadPage');
         },
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         elevation: 8,
         child: Icon(
           Icons.upload_sharp,
-          color: FlutterFlowTheme.of(context).primaryBackground,
+          color: FlutterFlowTheme.of(context).primaryBtnText,
           size: 24,
         ),
       ),
@@ -239,6 +244,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 2),
                           child: InkWell(
                             onTap: () async {
+                              logFirebaseEvent(
+                                  'HOME_PAGE_PAGE_Container_lczeky4n_ON_TAP');
+                              logFirebaseEvent('Container_Navigate-To');
+
                               context.pushNamed('VideoPage');
                             },
                             child: Container(

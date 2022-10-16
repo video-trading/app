@@ -92,6 +92,8 @@ class _CommentBottomSheetWidgetState extends State<CommentBottomSheetWidget> {
                       size: 30,
                     ),
                     onPressed: () async {
+                      logFirebaseEvent('COMMENT_BOTTOM_SHEET_close_ICN_ON_TAP');
+                      logFirebaseEvent('IconButton_Close-Dialog,-Drawer,-Etc');
                       Navigator.pop(context);
                     },
                   ),

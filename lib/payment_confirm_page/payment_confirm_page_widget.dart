@@ -18,6 +18,13 @@ class _PaymentConfirmPageWidgetState extends State<PaymentConfirmPageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
+  void initState() {
+    super.initState();
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'PaymentConfirmPage'});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<VideoRecord>>(
       future: queryVideoRecordOnce(
@@ -116,9 +123,13 @@ class _PaymentConfirmPageWidgetState extends State<PaymentConfirmPageWidget> {
                       children: [
                         FFButtonWidget(
                           onPressed: () async {
+                            logFirebaseEvent(
+                                'PAYMENT_CONFIRM_GO_HOME_BTN_ON_TAP');
+                            logFirebaseEvent('Button_Custom-Action');
                             await actions.updateOwner(
                               paymentConfirmPageVideoRecord!.reference,
                             );
+                            logFirebaseEvent('Button_Navigate-To');
 
                             context.goNamed('HomePage');
                           },

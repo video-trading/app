@@ -33,6 +33,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
     passwordVisibility = false;
     passwordConfirmController = TextEditingController();
     passwordConfirmVisibility = false;
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'SignUpPage'});
   }
 
   @override
@@ -295,6 +296,9 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                         children: [
                           FFButtonWidget(
                             onPressed: () async {
+                              logFirebaseEvent(
+                                  'SIGN_UP_PAGE_PAGE_Button-Login_ON_TAP');
+                              logFirebaseEvent('Button-Login_Auth');
                               GoRouter.of(context).prepareAuthEvent();
                               if (passwordController?.text !=
                                   passwordConfirmController?.text) {
@@ -362,6 +366,9 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                         children: [
                           InkWell(
                             onTap: () async {
+                              logFirebaseEvent(
+                                  'SIGN_UP_Container_ys9qphvx_ON_TAP');
+                              logFirebaseEvent('Container_Auth');
                               GoRouter.of(context).prepareAuthEvent();
                               final user = await signInWithGoogle(context);
                               if (user == null) {
@@ -395,6 +402,9 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                           ),
                           InkWell(
                             onTap: () async {
+                              logFirebaseEvent(
+                                  'SIGN_UP_Container_kyas77m5_ON_TAP');
+                              logFirebaseEvent('Container_Auth');
                               GoRouter.of(context).prepareAuthEvent();
                               final user = await signInWithApple(context);
                               if (user == null) {
@@ -485,6 +495,10 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                           ),
                           FFButtonWidget(
                             onPressed: () async {
+                              logFirebaseEvent(
+                                  'SIGN_UP_PAGE_PAGE_LOG_IN_BTN_ON_TAP');
+                              logFirebaseEvent('Button_Navigate-To');
+
                               context.pushNamed('SignInPage');
                             },
                             text: 'Log In',

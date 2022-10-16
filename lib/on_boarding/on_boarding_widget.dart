@@ -123,6 +123,8 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
           !anim.applyInitialState),
       this,
     );
+
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'OnBoarding'});
   }
 
   @override
@@ -143,6 +145,9 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
         ),
         child: InkWell(
           onTap: () async {
+            logFirebaseEvent('ON_BOARDING_PAGE_Column_rlwine0q_ON_TAP');
+            logFirebaseEvent('Column_Navigate-To');
+
             context.pushNamed('SignInPage');
           },
           child: Column(

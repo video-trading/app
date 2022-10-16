@@ -16,6 +16,13 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
+  void initState() {
+    super.initState();
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'SettingsPage'});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
@@ -183,6 +190,10 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                         ),
                         child: InkWell(
                           onTap: () async {
+                            logFirebaseEvent(
+                                'SETTINGS_PAGE_PAGE_Row_bju0dkjg_ON_TAP');
+                            logFirebaseEvent('Row_Navigate-To');
+
                             context.pushNamed('ProfilePage');
                           },
                           child: Row(
@@ -301,8 +312,12 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                     children: [
                       FFButtonWidget(
                         onPressed: () async {
+                          logFirebaseEvent(
+                              'SETTINGS_PAGE_PAGE_LOG_OUT_BTN_ON_TAP');
+                          logFirebaseEvent('Button_Auth');
                           GoRouter.of(context).prepareAuthEvent();
                           await signOut();
+                          logFirebaseEvent('Button_Navigate-To');
 
                           context.goNamedAuth('OnBoarding', mounted);
                         },

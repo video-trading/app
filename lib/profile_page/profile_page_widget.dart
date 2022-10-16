@@ -27,6 +27,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
   @override
   void initState() {
     super.initState();
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'ProfilePage'});
     yourNameController = TextEditingController(text: currentUserDisplayName);
   }
 
@@ -55,6 +56,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
             size: 30,
           ),
           onPressed: () async {
+            logFirebaseEvent('PROFILE_chevron_left_ICN_ON_TAP');
+            logFirebaseEvent('IconButton_Navigate-Back');
             context.pop();
           },
         ),
@@ -109,6 +112,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                 children: [
                   FFButtonWidget(
                     onPressed: () async {
+                      logFirebaseEvent('PROFILE_CHANGE_PHOTO_BTN_ON_TAP');
+                      logFirebaseEvent('Button_Upload-Photo-Video');
                       final selectedMedia = await selectMedia(
                         mediaSource: MediaSource.photoGallery,
                         multiImage: false,
@@ -223,11 +228,15 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                 child: FFButtonWidget(
                   onPressed: () async {
+                    logFirebaseEvent('PROFILE_SAVE_CHANGES_BTN_ON_TAP');
+                    logFirebaseEvent('Button_Backend-Call');
+
                     final userUpdateData = createUserRecordData(
                       displayName: yourNameController!.text,
                       photoUrl: uploadedFileUrl,
                     );
                     await currentUserReference!.update(userUpdateData);
+                    logFirebaseEvent('Button_Navigate-Back');
                     context.pop();
                   },
                   text: 'Save Changes',

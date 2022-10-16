@@ -19,6 +19,12 @@ class _PaymentWidgetState extends State<PaymentWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
+  void initState() {
+    super.initState();
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Payment'});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<VideoRecord>>(
       future: queryVideoRecordOnce(
@@ -62,6 +68,8 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                 size: 30,
               ),
               onPressed: () async {
+                logFirebaseEvent('PAYMENT_chevron_left_rounded_ICN_ON_TAP');
+                logFirebaseEvent('IconButton_Navigate-Back');
                 context.pop();
               },
             ),
@@ -144,6 +152,8 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent('PAYMENT_PAGE_CONFIRM_BTN_ON_TAP');
+                        logFirebaseEvent('Button_Braintree-Payment');
                         final transacAmount = paymentVideoRecord!.price!;
                         final transacDisplayName = paymentVideoRecord!.title;
                         if (kIsWeb) {
@@ -185,6 +195,8 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                         }
                         showSnackbar(context, 'Success!');
                         transactionId = paymentResponse.transactionId!;
+
+                        logFirebaseEvent('Button_Navigate-To');
 
                         context.goNamed('PaymentConfirmPage');
 
