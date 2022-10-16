@@ -124,6 +124,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'ProfilePage',
               path: 'profilePage',
               builder: (context, params) => ProfilePageWidget(),
+            ),
+            FFRoute(
+              name: 'UploadPage',
+              path: 'uploadPage',
+              builder: (context, params) => UploadPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

@@ -9,3 +9,4 @@ export 'payment/payment_widget.dart' show PaymentWidget;
 export 'payment_confirm_page/payment_confirm_page_widget.dart'
     show PaymentConfirmPageWidget;
 export 'profile_page/profile_page_widget.dart' show ProfilePageWidget;
+export 'upload_page/upload_page_widget.dart' show UploadPageWidget;
