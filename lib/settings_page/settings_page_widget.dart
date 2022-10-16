@@ -51,15 +51,17 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                       Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Container(
-                            width: 76,
-                            height: 76,
-                            clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                            ),
-                            child: Image.asset(
-                              'assets/images/UI_avatar@2x.png',
+                          AuthUserStreamWidget(
+                            child: Container(
+                              width: 76,
+                              height: 76,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                              ),
+                              child: Image.network(
+                                currentUserPhoto,
+                              ),
                             ),
                           ),
                         ],
@@ -298,8 +300,11 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          GoRouter.of(context).prepareAuthEvent();
+                          await signOut();
+
+                          context.goNamedAuth('OnBoarding', mounted);
                         },
                         text: 'Log Out',
                         options: FFButtonOptions(

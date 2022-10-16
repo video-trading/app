@@ -49,7 +49,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBtnText,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
         title: Text(
           'Upload your video',
@@ -66,13 +66,13 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
               color: FlutterFlowTheme.of(context).primaryText,
               size: 30,
             ),
-            onPressed: () {
-              print('IconButton pressed ...');
+            onPressed: () async {
+              context.goNamed('HomePage');
             },
           ),
         ],
         centerTitle: true,
-        elevation: 2,
+        elevation: 0,
       ),
       body: SafeArea(
         child: GestureDetector(

@@ -94,6 +94,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'HomePage',
               path: 'homePage',
+              requireAuth: true,
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'HomePage')
                   : HomePageWidget(),
@@ -101,6 +102,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'SettingsPage',
               path: 'settingsPage',
+              requireAuth: true,
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'SettingsPage')
                   : SettingsPageWidget(),
@@ -108,26 +110,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'VideoPage',
               path: 'videoPage',
+              requireAuth: true,
               builder: (context, params) => VideoPageWidget(),
             ),
             FFRoute(
               name: 'Payment',
               path: 'payment',
+              requireAuth: true,
               builder: (context, params) => PaymentWidget(),
             ),
             FFRoute(
               name: 'PaymentConfirmPage',
               path: 'paymentConfirmPage',
+              requireAuth: true,
               builder: (context, params) => PaymentConfirmPageWidget(),
             ),
             FFRoute(
               name: 'ProfilePage',
               path: 'profilePage',
+              requireAuth: true,
               builder: (context, params) => ProfilePageWidget(),
             ),
             FFRoute(
               name: 'UploadPage',
               path: 'uploadPage',
+              requireAuth: true,
               builder: (context, params) => UploadPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
