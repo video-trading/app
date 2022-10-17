@@ -431,6 +431,9 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                               final selectedMedia =
                                                   await selectMediaWithSourceBottomSheet(
                                                 context: context,
+                                                maxWidth: 1920.00,
+                                                maxHeight: 1080.00,
+                                                imageQuality: 70,
                                                 allowPhoto: true,
                                               );
                                               if (selectedMedia != null &&
