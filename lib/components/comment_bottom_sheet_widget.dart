@@ -73,7 +73,9 @@ class _CommentBottomSheetWidgetState extends State<CommentBottomSheetWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Comments',
+                    FFLocalizations.of(context).getText(
+                      '1wug9q4b' /* Comments */,
+                    ),
                     style: FlutterFlowTheme.of(context).title2.override(
                           fontFamily: 'Outfit',
                           color: FlutterFlowTheme.of(context).primaryText,

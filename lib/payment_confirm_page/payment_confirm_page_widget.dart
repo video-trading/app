@@ -80,7 +80,9 @@ class _PaymentConfirmPageWidgetState extends State<PaymentConfirmPageWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                   child: Text(
-                    'Payment Confirmed!',
+                    FFLocalizations.of(context).getText(
+                      'uvvxde7a' /* Payment Confirmed! */,
+                    ),
                     style: FlutterFlowTheme.of(context).title1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0xFF4B39EF),
@@ -108,7 +110,9 @@ class _PaymentConfirmPageWidgetState extends State<PaymentConfirmPageWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(24, 8, 24, 0),
                   child: Text(
-                    'Your payment has been confirmed, it may take 1-2 hours in order for your payment to go through and show up in your transation list.',
+                    FFLocalizations.of(context).getText(
+                      'nd2kut2b' /* Your payment has been confirme... */,
+                    ),
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyText2,
                   ),
@@ -128,7 +132,9 @@ class _PaymentConfirmPageWidgetState extends State<PaymentConfirmPageWidget> {
 
                             context.goNamed('HomePage');
                           },
-                          text: 'Go Home',
+                          text: FFLocalizations.of(context).getText(
+                            '8mnmcl5h' /* Go Home */,
+                          ),
                           options: FFButtonOptions(
                             width: 230,
                             height: 50,

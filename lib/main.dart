@@ -81,6 +81,7 @@ class _MyAppState extends State<MyApp> {
       ],
       locale: _locale,
       supportedLocales: const [
+        Locale('en'),
         Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'),
       ],
       theme: ThemeData(brightness: Brightness.light),
@@ -141,7 +142,9 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.home_outlined,
               size: 24,
             ),
-            label: 'Home',
+            label: FFLocalizations.of(context).getText(
+              'ezsclhvp' /* Home */,
+            ),
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -153,7 +156,9 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.person,
               size: 24,
             ),
-            label: 'Settings',
+            label: FFLocalizations.of(context).getText(
+              '12qnuj3a' /* Settings */,
+            ),
             tooltip: '',
           )
         ],

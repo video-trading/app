@@ -59,7 +59,9 @@ class _TransactionsPageWidgetState extends State<TransactionsPageWidget> {
           },
         ),
         title: Text(
-          'Transactions',
+          FFLocalizations.of(context).getText(
+            'urn2tixm' /* Transactions */,
+          ),
           style: FlutterFlowTheme.of(context).subtitle1,
         ),
         actions: [],

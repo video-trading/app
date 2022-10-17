@@ -58,7 +58,9 @@ class _MyVideoPageWidgetState extends State<MyVideoPageWidget> {
           },
         ),
         title: Text(
-          'Order History',
+          FFLocalizations.of(context).getText(
+            'snk73c3w' /* My videos */,
+          ),
           style: FlutterFlowTheme.of(context).subtitle1,
         ),
         actions: [],

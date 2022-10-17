@@ -71,7 +71,9 @@ class _TransactionDetailPageWidgetState
               },
             ),
             title: Text(
-              'Transaction Detail',
+              FFLocalizations.of(context).getText(
+                '85r30e4n' /* Transaction Detail */,
+              ),
               style: FlutterFlowTheme.of(context).subtitle1,
             ),
             actions: [],
@@ -118,7 +120,9 @@ class _TransactionDetailPageWidgetState
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Title',
+                                      FFLocalizations.of(context).getText(
+                                        '6hp6x6nd' /* Title */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .subtitle1,
                                     ),
@@ -158,7 +162,9 @@ class _TransactionDetailPageWidgetState
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Amount',
+                                      FFLocalizations.of(context).getText(
+                                        '8qiewm1e' /* Amount */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .subtitle1,
                                     ),
@@ -199,7 +205,9 @@ class _TransactionDetailPageWidgetState
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Status',
+                                      FFLocalizations.of(context).getText(
+                                        'oclsld3y' /* Status */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .subtitle1,
                                     ),
@@ -240,7 +248,9 @@ class _TransactionDetailPageWidgetState
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Created At',
+                                      FFLocalizations.of(context).getText(
+                                        'd1r0llj2' /* Created At */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .subtitle1,
                                     ),
@@ -282,7 +292,9 @@ class _TransactionDetailPageWidgetState
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'From',
+                                      FFLocalizations.of(context).getText(
+                                        'vos793n9' /* From */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .subtitle1,
                                     ),
@@ -344,7 +356,9 @@ class _TransactionDetailPageWidgetState
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'To',
+                                      FFLocalizations.of(context).getText(
+                                        'xuolc46p' /* To */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .subtitle1,
                                     ),

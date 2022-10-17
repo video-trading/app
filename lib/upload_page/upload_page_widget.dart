@@ -56,7 +56,9 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
         title: Text(
-          'Upload your video',
+          FFLocalizations.of(context).getText(
+            '5juwkgjd' /* Upload your video */,
+          ),
           style: FlutterFlowTheme.of(context).title1,
         ),
         actions: [
@@ -96,7 +98,9 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                         child: Text(
-                          'Upload Info',
+                          FFLocalizations.of(context).getText(
+                            '1rklx486' /* Upload Info */,
+                          ),
                           style: FlutterFlowTheme.of(context).bodyText1,
                         ),
                       ),
@@ -138,7 +142,11 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                             controller: titleController,
                                             obscureText: false,
                                             decoration: InputDecoration(
-                                              labelText: 'Title',
+                                              labelText:
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                '6abh7eik' /* Title */,
+                                              ),
                                               labelStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText2,
@@ -202,7 +210,11 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                             controller: descriptionController,
                                             obscureText: false,
                                             decoration: InputDecoration(
-                                              labelText: 'Description',
+                                              labelText:
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'bwzwagqk' /* Description */,
+                                              ),
                                               labelStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText2,
@@ -268,8 +280,16 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                             autofocus: true,
                                             obscureText: false,
                                             decoration: InputDecoration(
-                                              labelText: 'Price',
-                                              hintText: 'Price',
+                                              labelText:
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'ftab0f6c' /* Price */,
+                                              ),
+                                              hintText:
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'o9uss4pt' /* Price */,
+                                              ),
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText2,
@@ -330,7 +350,9 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                       child: Text(
-                        'Upload Info',
+                        FFLocalizations.of(context).getText(
+                          '48xjtr1b' /* Upload Info */,
+                        ),
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyText1,
                       ),
@@ -362,7 +384,9 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      'Cover',
+                                      FFLocalizations.of(context).getText(
+                                        'e77qyxqq' /* Cover */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1,
                                     ),
@@ -418,7 +442,9 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                           }
                                         }
                                       },
-                                      text: 'Upload',
+                                      text: FFLocalizations.of(context).getText(
+                                        '5bxxqxvt' /* Upload */,
+                                      ),
                                       options: FFButtonOptions(
                                         width: 130,
                                         height: 40,
@@ -448,7 +474,9 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        'Video',
+                                        FFLocalizations.of(context).getText(
+                                          'b43y3pkf' /* Video */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1,
                                       ),
@@ -506,7 +534,10 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                             }
                                           }
                                         },
-                                        text: 'Upload',
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          '3iisr31q' /* Upload */,
+                                        ),
                                         options: FFButtonOptions(
                                           width: 130,
                                           height: 40,
@@ -584,7 +615,9 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
 
                             context.pushNamed('HomePage');
                           },
-                          text: 'Save',
+                          text: FFLocalizations.of(context).getText(
+                            '5uw7c6p5' /* Save */,
+                          ),
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,

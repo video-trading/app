@@ -73,13 +73,17 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                       ),
                     ),
                     Text(
-                      'Get Started',
+                      FFLocalizations.of(context).getText(
+                        '49x9bs9g' /* Get Started */,
+                      ),
                       style: FlutterFlowTheme.of(context).title1,
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                       child: Text(
-                        'Use the form below to get started.',
+                        FFLocalizations.of(context).getText(
+                          'ktqal428' /* Use the form below to get star... */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyText2,
                       ),
                     ),
@@ -97,10 +101,15 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                 controller: emailAddressController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Email Address',
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    '2yji9974' /* Email Address */,
+                                  ),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).bodyText2,
-                                  hintText: 'Enter your email here...',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'd0y4pcup' /* Enter your email here... */,
+                                  ),
                                   hintStyle:
                                       FlutterFlowTheme.of(context).bodyText2,
                                   enabledBorder: OutlineInputBorder(
@@ -158,10 +167,14 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                               controller: passwordController,
                               obscureText: !passwordVisibility,
                               decoration: InputDecoration(
-                                labelText: 'Password',
+                                labelText: FFLocalizations.of(context).getText(
+                                  'ye9g20db' /* Password */,
+                                ),
                                 labelStyle:
                                     FlutterFlowTheme.of(context).bodyText2,
-                                hintText: 'Enter your email here...',
+                                hintText: FFLocalizations.of(context).getText(
+                                  'n128ja56' /* Enter your password here... */,
+                                ),
                                 hintStyle:
                                     FlutterFlowTheme.of(context).bodyText2,
                                 enabledBorder: OutlineInputBorder(
@@ -229,9 +242,13 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                           controller: passwordConfirmController,
                           obscureText: !passwordConfirmVisibility,
                           decoration: InputDecoration(
-                            labelText: 'Confirm Password',
+                            labelText: FFLocalizations.of(context).getText(
+                              'sahkg8bi' /* Confirm Password */,
+                            ),
                             labelStyle: FlutterFlowTheme.of(context).bodyText2,
-                            hintText: 'Enter your email here...',
+                            hintText: FFLocalizations.of(context).getText(
+                              '8wmbjc4q' /* Enter your password here... */,
+                            ),
                             hintStyle: FlutterFlowTheme.of(context).bodyText2,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -323,7 +340,9 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
 
                               context.goNamedAuth('HomePage', mounted);
                             },
-                            text: 'Create Account',
+                            text: FFLocalizations.of(context).getText(
+                              'me9xcmvo' /* Create Account */,
+                            ),
                             options: FFButtonOptions(
                               width: 190,
                               height: 50,
@@ -351,7 +370,9 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           AutoSizeText(
-                            'Use a social platform to continue',
+                            FFLocalizations.of(context).getText(
+                              'y4rl39om' /* Use a social platform to conti... */,
+                            ),
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context).bodyText2,
                           ),
@@ -490,7 +511,9 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Already have an account?',
+                            FFLocalizations.of(context).getText(
+                              'oqhgi00f' /* Already have an account? */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyText1,
                           ),
                           FFButtonWidget(
@@ -501,7 +524,9 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
 
                               context.pushNamed('SignInPage');
                             },
-                            text: 'Log In',
+                            text: FFLocalizations.of(context).getText(
+                              '0e73v0sf' /* Log In */,
+                            ),
                             options: FFButtonOptions(
                               width: 90,
                               height: 30,

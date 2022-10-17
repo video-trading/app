@@ -163,7 +163,9 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                 child: Text(
-                  '歡迎來到視頻交易平台',
+                  FFLocalizations.of(context).getText(
+                    'bg4841n3' /* Welcome to Video2Trade */,
+                  ),
                   style: FlutterFlowTheme.of(context).title1.override(
                         fontFamily: 'Lexend Deca',
                         color: Colors.white,
@@ -175,7 +177,9 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 120),
                 child: Text(
-                  '交易，欣賞，收藏',
+                  FFLocalizations.of(context).getText(
+                    'qk6yyuid' /* Trade, View, Share */,
+                  ),
                   style: FlutterFlowTheme.of(context).title3.override(
                         fontFamily: 'Lexend Deca',
                         color: Colors.white,

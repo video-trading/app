@@ -31,7 +31,9 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
         title: Text(
-          'My Profile',
+          FFLocalizations.of(context).getText(
+            'gpsr5iu6' /* My Profile */,
+          ),
           style: FlutterFlowTheme.of(context).title2,
         ),
         actions: [],
@@ -127,7 +129,9 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(24, 12, 0, 12),
                     child: Text(
-                      'Account Settings',
+                      FFLocalizations.of(context).getText(
+                        '3fpilfqk' /* Account Settings */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyText1,
                     ),
                   ),
@@ -165,7 +169,9 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                               child: Text(
-                                'Transaction History',
+                                FFLocalizations.of(context).getText(
+                                  'tw0byibc' /* Transaction History */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyText1,
                               ),
                             ),
@@ -213,7 +219,9 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                                 child: Text(
-                                  'Settings',
+                                  FFLocalizations.of(context).getText(
+                                    'npapd73v' /* Settings */,
+                                  ),
                                   style: FlutterFlowTheme.of(context).bodyText1,
                                 ),
                               ),
@@ -262,7 +270,9 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                                 child: Text(
-                                  'My Videos',
+                                  FFLocalizations.of(context).getText(
+                                    'z8f2dc5m' /* My Videos */,
+                                  ),
                                   style: FlutterFlowTheme.of(context).bodyText1,
                                 ),
                               ),
@@ -303,7 +313,9 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                               child: Text(
-                                'Change Password',
+                                FFLocalizations.of(context).getText(
+                                  'cnhicu8p' /* Change Password */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyText1,
                               ),
                             ),
@@ -340,7 +352,9 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
 
                           context.goNamedAuth('OnBoarding', mounted);
                         },
-                        text: 'Log Out',
+                        text: FFLocalizations.of(context).getText(
+                          'zbz7cb7f' /* Log Out */,
+                        ),
                         options: FFButtonOptions(
                           width: 90,
                           height: 40,

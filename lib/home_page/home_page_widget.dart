@@ -107,7 +107,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
         title: Text(
-          'Home',
+          FFLocalizations.of(context).getText(
+            '9nr62lay' /* Home */,
+          ),
           style: FlutterFlowTheme.of(context).title1,
         ),
         actions: [],
@@ -128,7 +130,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Adjust Filters',
+                        FFLocalizations.of(context).getText(
+                          'lm1dkdek' /* Adjust Filters */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyText2,
                       ),
                       FlutterFlowIconButton(

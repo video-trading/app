@@ -73,7 +73,9 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
               },
             ),
             title: Text(
-              'Review & Confirm',
+              FFLocalizations.of(context).getText(
+                '931vrnsn' /* Review & Confirm */,
+              ),
               style: FlutterFlowTheme.of(context).subtitle1,
             ),
             actions: [],
@@ -115,7 +117,9 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Owner',
+                          FFLocalizations.of(context).getText(
+                            'wnge98me' /* Owner */,
+                          ),
                           style: FlutterFlowTheme.of(context).subtitle1,
                         ),
                         StreamBuilder<UserRecord>(
@@ -159,7 +163,9 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Total Amount',
+                          FFLocalizations.of(context).getText(
+                            'tb8uvmli' /* Total Amount */,
+                          ),
                           style: FlutterFlowTheme.of(context).subtitle1,
                         ),
                         Text(
@@ -185,7 +191,9 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
                     child: Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                       child: Text(
-                        'You may see a temporary hold on your payment method in the amount of your Taskers hourly rate of \$15. You can cancel at any time. Tasks cancelled less than 24 hours before start time may be billed a cancellation fee of one our. Tasks have a one-hour minimum.',
+                        FFLocalizations.of(context).getText(
+                          'm9mqcnjp' /* You may see a temporary hold o... */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyText2,
                       ),
                     ),
@@ -264,7 +272,9 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
 
                         setState(() {});
                       },
-                      text: 'Confirm',
+                      text: FFLocalizations.of(context).getText(
+                        'wy71fepg' /* Confirm */,
+                      ),
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 50,

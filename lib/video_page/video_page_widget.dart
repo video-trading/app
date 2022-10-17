@@ -198,7 +198,9 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                               },
                             ),
                             Text(
-                              'Dislike',
+                              FFLocalizations.of(context).getText(
+                                'xid9vx36' /* Dislike */,
+                              ),
                               style: FlutterFlowTheme.of(context).bodyText1,
                             ),
                           ],
@@ -322,7 +324,9 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'comments',
+                                    FFLocalizations.of(context).getText(
+                                      'cevk6uht' /* comments */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).bodyText1,
                                   ),
