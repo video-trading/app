@@ -561,6 +561,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                               cover: uploadedFileUrl1,
                               video: uploadedFileUrl2,
                               price: double.parse(priceController!.text),
+                              owner: currentUserReference,
                             );
                             await VideoRecord.collection
                                 .doc()

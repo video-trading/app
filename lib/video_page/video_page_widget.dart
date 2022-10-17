@@ -329,7 +329,8 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                                   children: [
                                     Icon(
                                       Icons.tag_faces_outlined,
-                                      color: Colors.black,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
                                       size: 24,
                                     ),
                                     Padding(
