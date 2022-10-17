@@ -34,8 +34,8 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<VideoRecord>(
-      stream: VideoRecord.getDocument(widget.video!),
+    return FutureBuilder<VideoRecord>(
+      future: VideoRecord.getDocumentOnce(widget.video!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
