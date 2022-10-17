@@ -187,8 +187,8 @@ class _VideoTradingHistoryPageWidgetState
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    StreamBuilder<UserRecord>(
-                                      stream: UserRecord.getDocument(
+                                    FutureBuilder<UserRecord>(
+                                      future: UserRecord.getDocumentOnce(
                                           listViewTransactionRecord.from!),
                                       builder: (context, snapshot) {
                                         // Customize what your widget looks like when it's loading.

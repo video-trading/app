@@ -86,51 +86,51 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            '1rklx486' /* Upload Info */,
-                          ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-                  child: SingleChildScrollView(
-                    child: Column(
+          child: Form(
+            key: formKey,
+            autovalidateMode: AutovalidateMode.disabled,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                    child: Row(
                       mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0, 10, 0, 10),
-                                child: Card(
-                                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
-                                  ),
-                                  child: Form(
-                                    key: formKey,
-                                    autovalidateMode: AutovalidateMode.disabled,
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              '1rklx486' /* Upload Info */,
+                            ),
+                            style: FlutterFlowTheme.of(context).bodyText1,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 10, 0, 10),
+                                  child: Card(
+                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -200,6 +200,13 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1,
+                                            validator: (val) {
+                                              if (val == null || val.isEmpty) {
+                                                return 'Field is required';
+                                              }
+
+                                              return null;
+                                            },
                                           ),
                                         ),
                                         Padding(
@@ -269,6 +276,13 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1,
                                             maxLines: 10,
+                                            validator: (val) {
+                                              if (val == null || val.isEmpty) {
+                                                return 'Field is required';
+                                              }
+
+                                              return null;
+                                            },
                                           ),
                                         ),
                                         Padding(
@@ -330,6 +344,13 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1,
                                             keyboardType: TextInputType.number,
+                                            validator: (val) {
+                                              if (val == null || val.isEmpty) {
+                                                return 'Field is required';
+                                              }
+
+                                              return null;
+                                            },
                                           ),
                                         ),
                                       ],
@@ -337,308 +358,354 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
-                      child: Text(
-                        FFLocalizations.of(context).getText(
-                          '48xjtr1b' /* Upload Info */,
-                        ),
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyText1,
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-                        child: Card(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            '48xjtr1b' /* Upload Info */,
                           ),
-                          child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'e77qyxqq' /* Cover */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
-                                    ),
-                                    FFButtonWidget(
-                                      onPressed: () async {
-                                        logFirebaseEvent(
-                                            'UPLOAD_PAGE_PAGE_cover_ON_TAP');
-                                        logFirebaseEvent(
-                                            'cover_Upload-Photo-Video');
-                                        final selectedMedia =
-                                            await selectMediaWithSourceBottomSheet(
-                                          context: context,
-                                          allowPhoto: true,
-                                        );
-                                        if (selectedMedia != null &&
-                                            selectedMedia.every((m) =>
-                                                validateFileFormat(
-                                                    m.storagePath, context))) {
-                                          setState(
-                                              () => isMediaUploading1 = true);
-                                          var downloadUrls = <String>[];
-                                          try {
-                                            showUploadMessage(
-                                              context,
-                                              'Uploading file...',
-                                              showLoading: true,
-                                            );
-                                            downloadUrls = (await Future.wait(
-                                              selectedMedia.map(
-                                                (m) async => await uploadData(
-                                                    m.storagePath, m.bytes),
-                                              ),
-                                            ))
-                                                .where((u) => u != null)
-                                                .map((u) => u!)
-                                                .toList();
-                                          } finally {
-                                            ScaffoldMessenger.of(context)
-                                                .hideCurrentSnackBar();
-                                            isMediaUploading1 = false;
-                                          }
-                                          if (downloadUrls.length ==
-                                              selectedMedia.length) {
-                                            setState(() => uploadedFileUrl1 =
-                                                downloadUrls.first);
-                                            showUploadMessage(
-                                                context, 'Success!');
-                                          } else {
-                                            setState(() {});
-                                            showUploadMessage(context,
-                                                'Failed to upload media');
-                                            return;
-                                          }
-                                        }
-                                      },
-                                      text: FFLocalizations.of(context).getText(
-                                        '5bxxqxvt' /* Upload */,
-                                      ),
-                                      options: FFButtonOptions(
-                                        width: 130,
-                                        height: 40,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .subtitle2
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.white,
-                                            ),
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1,
-                                        ),
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 10, 0, 0),
-                                  child: Row(
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context).bodyText1,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                          child: Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10, 10, 10, 10),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          'b43y3pkf' /* Video */,
+                                          'e77qyxqq' /* Cover */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1,
                                       ),
-                                      FFButtonWidget(
-                                        onPressed: () async {
-                                          logFirebaseEvent(
-                                              'UPLOAD_PAGE_PAGE_video_ON_TAP');
-                                          logFirebaseEvent(
-                                              'video_Upload-Photo-Video');
-                                          final selectedMedia =
-                                              await selectMediaWithSourceBottomSheet(
-                                            context: context,
-                                            allowPhoto: false,
-                                            allowVideo: true,
-                                          );
-                                          if (selectedMedia != null &&
-                                              selectedMedia.every((m) =>
-                                                  validateFileFormat(
-                                                      m.storagePath,
-                                                      context))) {
-                                            setState(
-                                                () => isMediaUploading2 = true);
-                                            var downloadUrls = <String>[];
-                                            try {
-                                              showUploadMessage(
-                                                context,
-                                                'Uploading file...',
-                                                showLoading: true,
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          if (uploadedFileUrl1 != null &&
+                                              uploadedFileUrl1 != '')
+                                            Icon(
+                                              Icons.done,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiary400,
+                                              size: 24,
+                                            ),
+                                          FFButtonWidget(
+                                            onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'UPLOAD_PAGE_PAGE_cover_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'cover_Upload-Photo-Video');
+                                              final selectedMedia =
+                                                  await selectMediaWithSourceBottomSheet(
+                                                context: context,
+                                                allowPhoto: true,
                                               );
-                                              downloadUrls = (await Future.wait(
-                                                selectedMedia.map(
-                                                  (m) async => await uploadData(
-                                                      m.storagePath, m.bytes),
-                                                ),
-                                              ))
-                                                  .where((u) => u != null)
-                                                  .map((u) => u!)
-                                                  .toList();
-                                            } finally {
-                                              ScaffoldMessenger.of(context)
-                                                  .hideCurrentSnackBar();
-                                              isMediaUploading2 = false;
-                                            }
-                                            if (downloadUrls.length ==
-                                                selectedMedia.length) {
-                                              setState(() => uploadedFileUrl2 =
-                                                  downloadUrls.first);
-                                              showUploadMessage(
-                                                  context, 'Success!');
-                                            } else {
-                                              setState(() {});
-                                              showUploadMessage(context,
-                                                  'Failed to upload media');
-                                              return;
-                                            }
-                                          }
-                                        },
-                                        text:
-                                            FFLocalizations.of(context).getText(
-                                          '3iisr31q' /* Upload */,
-                                        ),
-                                        options: FFButtonOptions(
-                                          width: 130,
-                                          height: 40,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .subtitle2
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: Colors.white,
-                                                  ),
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
+                                              if (selectedMedia != null &&
+                                                  selectedMedia.every((m) =>
+                                                      validateFileFormat(
+                                                          m.storagePath,
+                                                          context))) {
+                                                setState(() =>
+                                                    isMediaUploading1 = true);
+                                                var downloadUrls = <String>[];
+                                                try {
+                                                  showUploadMessage(
+                                                    context,
+                                                    'Uploading file...',
+                                                    showLoading: true,
+                                                  );
+                                                  downloadUrls =
+                                                      (await Future.wait(
+                                                    selectedMedia.map(
+                                                      (m) async =>
+                                                          await uploadData(
+                                                              m.storagePath,
+                                                              m.bytes),
+                                                    ),
+                                                  ))
+                                                          .where(
+                                                              (u) => u != null)
+                                                          .map((u) => u!)
+                                                          .toList();
+                                                } finally {
+                                                  ScaffoldMessenger.of(context)
+                                                      .hideCurrentSnackBar();
+                                                  isMediaUploading1 = false;
+                                                }
+                                                if (downloadUrls.length ==
+                                                    selectedMedia.length) {
+                                                  setState(() =>
+                                                      uploadedFileUrl1 =
+                                                          downloadUrls.first);
+                                                  showUploadMessage(
+                                                      context, 'Success!');
+                                                } else {
+                                                  setState(() {});
+                                                  showUploadMessage(context,
+                                                      'Failed to upload media');
+                                                  return;
+                                                }
+                                              }
+                                            },
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              '5bxxqxvt' /* Upload */,
+                                            ),
+                                            options: FFButtonOptions(
+                                              width: 130,
+                                              height: 40,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle2
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                      ),
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                            ),
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
+                                        ],
                                       ),
                                     ],
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            logFirebaseEvent(
-                                'UPLOAD_PAGE_PAGE_SAVE_BTN_ON_TAP');
-                            logFirebaseEvent('Button_Backend-Call');
-
-                            final videoCreateData = createVideoRecordData(
-                              title: titleController!.text,
-                              description: '',
-                              author: currentUserReference,
-                              createdAt: getCurrentTimestamp,
-                              updatedAt: getCurrentTimestamp,
-                              likes: 0,
-                              cover: uploadedFileUrl1,
-                              video: uploadedFileUrl2,
-                              price: double.parse(priceController!.text),
-                              owner: currentUserReference,
-                            );
-                            await VideoRecord.collection
-                                .doc()
-                                .set(videoCreateData);
-                            logFirebaseEvent('Button_Show-Snack-Bar');
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Video has been uploaded',
-                                  style: TextStyle(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                  ),
-                                ),
-                                duration: Duration(milliseconds: 4000),
-                                backgroundColor: Color(0x00000000),
-                              ),
-                            );
-                            logFirebaseEvent('Button_Navigate-To');
-
-                            context.pushNamed('HomePage');
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            '5uw7c6p5' /* Save */,
-                          ),
-                          options: FFButtonOptions(
-                            width: 130,
-                            height: 40,
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            textStyle:
-                                FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 10, 0, 0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'b43y3pkf' /* Video */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
+                                        ),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            if (uploadedFileUrl2 != null &&
+                                                uploadedFileUrl2 != '')
+                                              Icon(
+                                                Icons.done,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary400,
+                                                size: 24,
+                                              ),
+                                            FFButtonWidget(
+                                              onPressed: () async {
+                                                logFirebaseEvent(
+                                                    'UPLOAD_PAGE_PAGE_video_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'video_Upload-Photo-Video');
+                                                final selectedMedia =
+                                                    await selectMediaWithSourceBottomSheet(
+                                                  context: context,
+                                                  allowPhoto: false,
+                                                  allowVideo: true,
+                                                );
+                                                if (selectedMedia != null &&
+                                                    selectedMedia.every((m) =>
+                                                        validateFileFormat(
+                                                            m.storagePath,
+                                                            context))) {
+                                                  setState(() =>
+                                                      isMediaUploading2 = true);
+                                                  var downloadUrls = <String>[];
+                                                  try {
+                                                    showUploadMessage(
+                                                      context,
+                                                      'Uploading file...',
+                                                      showLoading: true,
+                                                    );
+                                                    downloadUrls = (await Future
+                                                            .wait(
+                                                      selectedMedia.map(
+                                                        (m) async =>
+                                                            await uploadData(
+                                                                m.storagePath,
+                                                                m.bytes),
+                                                      ),
+                                                    ))
+                                                        .where((u) => u != null)
+                                                        .map((u) => u!)
+                                                        .toList();
+                                                  } finally {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .hideCurrentSnackBar();
+                                                    isMediaUploading2 = false;
+                                                  }
+                                                  if (downloadUrls.length ==
+                                                      selectedMedia.length) {
+                                                    setState(() =>
+                                                        uploadedFileUrl2 =
+                                                            downloadUrls.first);
+                                                    showUploadMessage(
+                                                        context, 'Success!');
+                                                  } else {
+                                                    setState(() {});
+                                                    showUploadMessage(context,
+                                                        'Failed to upload media');
+                                                    return;
+                                                  }
+                                                }
+                                              },
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                '3iisr31q' /* Upload */,
+                                              ),
+                                              options: FFButtonOptions(
+                                                width: 130,
+                                                height: 40,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .subtitle2
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                        ),
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1,
+                                  ),
+                                ],
+                              ),
                             ),
-                            borderRadius: BorderRadius.circular(8),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'UPLOAD_PAGE_PAGE_SAVE_BTN_ON_TAP');
+                              logFirebaseEvent('Button_Backend-Call');
+
+                              final videoCreateData = createVideoRecordData(
+                                title: titleController!.text,
+                                description: '',
+                                author: currentUserReference,
+                                createdAt: getCurrentTimestamp,
+                                updatedAt: getCurrentTimestamp,
+                                likes: 0,
+                                cover: uploadedFileUrl1,
+                                video: uploadedFileUrl2,
+                                price: double.parse(priceController!.text),
+                                owner: currentUserReference,
+                              );
+                              await VideoRecord.collection
+                                  .doc()
+                                  .set(videoCreateData);
+                              logFirebaseEvent('Button_Show-Snack-Bar');
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Video has been uploaded',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor: Color(0x00000000),
+                                ),
+                              );
+                              logFirebaseEvent('Button_Navigate-To');
+
+                              context.pushNamed('HomePage');
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              '5uw7c6p5' /* Save */,
+                            ),
+                            options: FFButtonOptions(
+                              width: 130,
+                              height: 40,
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                  ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
