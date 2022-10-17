@@ -66,7 +66,9 @@ class _VideoTradingHistoryPageWidgetState
           },
         ),
         title: Text(
-          'Video Trading  History',
+          FFLocalizations.of(context).getText(
+            'mo01ljmf' /* Video Trading  History */,
+          ),
           style: FlutterFlowTheme.of(context).title2,
         ),
         actions: [],
@@ -228,7 +230,9 @@ class _VideoTradingHistoryPageWidgetState
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       10, 0, 0, 0),
                                   child: Text(
-                                    'Purchased',
+                                    FFLocalizations.of(context).getText(
+                                      'i9olxcxx' /* Purchased */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).bodyText2,
                                   ),

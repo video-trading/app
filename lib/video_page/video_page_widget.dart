@@ -273,7 +273,8 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                     logFirebaseEvent('ListTile_Bottom-Sheet');
                     await showModalBottomSheet(
                       isScrollControlled: true,
-                      backgroundColor: Colors.transparent,
+                      backgroundColor:
+                          FlutterFlowTheme.of(context).primaryBackground,
                       context: context,
                       builder: (context) {
                         return Padding(
@@ -285,11 +286,15 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                   },
                   child: ListTile(
                     title: Text(
-                      'Comments',
+                      FFLocalizations.of(context).getText(
+                        'p6jhmf1e' /* Comments */,
+                      ),
                       style: FlutterFlowTheme.of(context).title3,
                     ),
                     subtitle: Text(
-                      'view all comments',
+                      FFLocalizations.of(context).getText(
+                        '9ztnbda9' /* view all comments */,
+                      ),
                       style: FlutterFlowTheme.of(context).subtitle2,
                     ),
                     trailing: Icon(
@@ -320,11 +325,15 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                   },
                   child: ListTile(
                     title: Text(
-                      'Transactions',
+                      FFLocalizations.of(context).getText(
+                        'c8cgf2jr' /* Transactions */,
+                      ),
                       style: FlutterFlowTheme.of(context).title3,
                     ),
                     subtitle: Text(
-                      'view all transactions',
+                      FFLocalizations.of(context).getText(
+                        'gvxb1pia' /* view all transactions */,
+                      ),
                       style: FlutterFlowTheme.of(context).subtitle2,
                     ),
                     trailing: Icon(
