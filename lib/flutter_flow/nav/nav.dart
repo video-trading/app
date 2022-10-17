@@ -138,6 +138,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => ProfilePageWidget(),
             ),
             FFRoute(
+              name: 'MyVideoPage',
+              path: 'myVideoPage',
+              requireAuth: true,
+              builder: (context, params) => MyVideoPageWidget(),
+            ),
+            FFRoute(
               name: 'TransactionsPage',
               path: 'transactionsPage',
               requireAuth: true,

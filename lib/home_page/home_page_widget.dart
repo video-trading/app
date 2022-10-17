@@ -172,8 +172,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   child: PagedListView<DocumentSnapshot<Object?>?, VideoRecord>(
                     pagingController: () {
                       final Query<Object?> Function(Query<Object?>)
-                          queryBuilder =
-                          (videoRecord) => videoRecord.orderBy('created_at');
+                          queryBuilder = (videoRecord) => videoRecord
+                              .orderBy('created_at', descending: true);
                       if (_pagingController != null) {
                         final query = queryBuilder(VideoRecord.collection);
                         if (query != _pagingQuery) {
@@ -191,8 +191,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       _pagingController!
                           .addPageRequestListener((nextPageMarker) {
                         queryVideoRecordPage(
-                          queryBuilder: (videoRecord) =>
-                              videoRecord.orderBy('created_at'),
+                          queryBuilder: (videoRecord) => videoRecord
+                              .orderBy('created_at', descending: true),
                           nextPageMarker: nextPageMarker,
                           pageSize: 25,
                           isStream: true,

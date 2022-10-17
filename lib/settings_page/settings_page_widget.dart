@@ -247,28 +247,37 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                               FlutterFlowTheme.of(context).secondaryBackground,
                           shape: BoxShape.rectangle,
                         ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
-                              child: Text(
-                                'Notifications',
-                                style: FlutterFlowTheme.of(context).bodyText1,
-                              ),
-                            ),
-                            Expanded(
-                              child: Align(
-                                alignment: AlignmentDirectional(0.9, 0),
-                                child: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Color(0xFF95A1AC),
-                                  size: 18,
+                        child: InkWell(
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'SETTINGS_PAGE_PAGE_Row_5irek1en_ON_TAP');
+                            logFirebaseEvent('Row_Navigate-To');
+
+                            context.pushNamed('MyVideoPage');
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                                child: Text(
+                                  'My Videos',
+                                  style: FlutterFlowTheme.of(context).bodyText1,
                                 ),
                               ),
-                            ),
-                          ],
+                              Expanded(
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.9, 0),
+                                  child: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Color(0xFF95A1AC),
+                                    size: 18,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
