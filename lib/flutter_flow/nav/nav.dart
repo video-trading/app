@@ -117,10 +117,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'Payment',
-              path: 'payment',
+              name: 'PaymentPage',
+              path: 'paymentPage',
               requireAuth: true,
-              builder: (context, params) => PaymentWidget(),
+              builder: (context, params) => PaymentPageWidget(
+                video: params.getParam(
+                    'video', ParamType.DocumentReference, false, 'Video'),
+              ),
             ),
             FFRoute(
               name: 'PaymentConfirmPage',

@@ -10,21 +10,26 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PaymentWidget extends StatefulWidget {
-  const PaymentWidget({Key? key}) : super(key: key);
+class PaymentPageWidget extends StatefulWidget {
+  const PaymentPageWidget({
+    Key? key,
+    this.video,
+  }) : super(key: key);
+
+  final DocumentReference? video;
 
   @override
-  _PaymentWidgetState createState() => _PaymentWidgetState();
+  _PaymentPageWidgetState createState() => _PaymentPageWidgetState();
 }
 
-class _PaymentWidgetState extends State<PaymentWidget> {
+class _PaymentPageWidgetState extends State<PaymentPageWidget> {
   String? transactionId;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Payment'});
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'PaymentPage'});
   }
 
   @override
@@ -46,13 +51,13 @@ class _PaymentWidgetState extends State<PaymentWidget> {
             ),
           );
         }
-        List<VideoRecord> paymentVideoRecordList = snapshot.data!;
+        List<VideoRecord> paymentPageVideoRecordList = snapshot.data!;
         // Return an empty Container when the document does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
         }
-        final paymentVideoRecord = paymentVideoRecordList.isNotEmpty
-            ? paymentVideoRecordList.first
+        final paymentPageVideoRecord = paymentPageVideoRecordList.isNotEmpty
+            ? paymentPageVideoRecordList.first
             : null;
         return Scaffold(
           key: scaffoldKey,
@@ -102,11 +107,49 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                paymentVideoRecord!.title!,
-                                style: FlutterFlowTheme.of(context).subtitle1,
+                                paymentPageVideoRecord!.title!,
+                                style: FlutterFlowTheme.of(context).title1,
                               ),
+                              Divider(),
                             ],
                           ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Owner',
+                          style: FlutterFlowTheme.of(context).subtitle1,
+                        ),
+                        StreamBuilder<UserRecord>(
+                          stream: UserRecord.getDocument(
+                              paymentPageVideoRecord!.owner!),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50,
+                                  height: 50,
+                                  child: CircularProgressIndicator(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
+                                  ),
+                                ),
+                              );
+                            }
+                            final textUserRecord = snapshot.data!;
+                            return Text(
+                              textUserRecord.displayName!,
+                              style: FlutterFlowTheme.of(context).title3,
+                            );
+                          },
                         ),
                       ],
                     ),
@@ -125,11 +168,16 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Total Rate',
+                          'Total Amount',
                           style: FlutterFlowTheme.of(context).subtitle1,
                         ),
                         Text(
-                          paymentVideoRecord!.price!.toString(),
+                          formatNumber(
+                            paymentPageVideoRecord!.price!,
+                            formatType: FormatType.custom,
+                            format: 'HKD \$',
+                            locale: '',
+                          ),
                           style: FlutterFlowTheme.of(context).title3,
                         ),
                       ],
@@ -155,10 +203,12 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        logFirebaseEvent('PAYMENT_PAGE_CONFIRM_BTN_ON_TAP');
+                        logFirebaseEvent(
+                            'PAYMENT_PAGE_PAGE_CONFIRM_BTN_ON_TAP');
                         logFirebaseEvent('Button_Braintree-Payment');
-                        final transacAmount = paymentVideoRecord!.price!;
-                        final transacDisplayName = paymentVideoRecord!.title;
+                        final transacAmount = paymentPageVideoRecord!.price!;
+                        final transacDisplayName =
+                            paymentPageVideoRecord!.title;
                         if (kIsWeb) {
                           showSnackbar(
                               context, 'Payments not yet supported on web.');
@@ -201,17 +251,17 @@ class _PaymentWidgetState extends State<PaymentWidget> {
 
                         logFirebaseEvent('Button_Custom-Action');
                         await actions.updateOwner(
-                          paymentVideoRecord!.reference,
+                          paymentPageVideoRecord!.reference,
                         );
                         logFirebaseEvent('Button_Backend-Call');
 
                         final transactionCreateData =
                             createTransactionRecordData(
-                          name: paymentVideoRecord!.title,
-                          amount: paymentVideoRecord!.price,
+                          name: paymentPageVideoRecord!.title,
+                          amount: paymentPageVideoRecord!.price,
                           status: 'Done',
                           createdAt: getCurrentTimestamp,
-                          video: paymentVideoRecord!.reference,
+                          video: paymentPageVideoRecord!.reference,
                           from: currentUserReference,
                           to: currentUserReference,
                         );

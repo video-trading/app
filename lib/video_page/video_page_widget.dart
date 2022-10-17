@@ -220,7 +220,15 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                                       'VIDEO_PAGE_PAGE_PURCHASE_BTN_ON_TAP');
                                   logFirebaseEvent('Button_Navigate-To');
 
-                                  context.pushNamed('Payment');
+                                  context.pushNamed(
+                                    'PaymentPage',
+                                    queryParams: {
+                                      'video': serializeParam(
+                                        videoPageVideoRecord.reference,
+                                        ParamType.DocumentReference,
+                                      ),
+                                    }.withoutNulls,
+                                  );
                                 },
                                 text: formatNumber(
                                   videoPageVideoRecord.price!,
