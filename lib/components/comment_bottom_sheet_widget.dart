@@ -251,7 +251,7 @@ class _CommentBottomSheetWidgetState extends State<CommentBottomSheetWidget> {
                                   decoration: InputDecoration(
                                     hintText:
                                         FFLocalizations.of(context).getText(
-                                      'agwu03lz' /* [Some hint text...] */,
+                                      'agwu03lz' /* Comment... */,
                                     ),
                                     hintStyle:
                                         FlutterFlowTheme.of(context).bodyText2,

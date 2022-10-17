@@ -468,7 +468,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'agwu03lz': {
-      'en': '[Some hint text...]',
+      'en': 'Comment...',
       'zh_Hant': '',
     },
     '12x44zbp': {
