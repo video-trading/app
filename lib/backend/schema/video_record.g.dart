@@ -95,7 +95,8 @@ class _$VideoRecordSerializer implements StructuredSerializer<VideoRecord> {
       result
         ..add('owner')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
+            specifiedType: const FullType(
+                DocumentReference, const [const FullType.nullable(Object)])));
     }
     value = object.ffRef;
     if (value != null) {
@@ -165,7 +166,9 @@ class _$VideoRecordSerializer implements StructuredSerializer<VideoRecord> {
           break;
         case 'owner':
           result.owner = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+              specifiedType: const FullType(DocumentReference, const [
+                const FullType.nullable(Object)
+              ])) as DocumentReference<Object?>?;
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -202,7 +205,7 @@ class _$VideoRecord extends VideoRecord {
   @override
   final double? price;
   @override
-  final String? owner;
+  final DocumentReference<Object?>? owner;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -337,9 +340,9 @@ class VideoRecordBuilder implements Builder<VideoRecord, VideoRecordBuilder> {
   double? get price => _$this._price;
   set price(double? price) => _$this._price = price;
 
-  String? _owner;
-  String? get owner => _$this._owner;
-  set owner(String? owner) => _$this._owner = owner;
+  DocumentReference<Object?>? _owner;
+  DocumentReference<Object?>? get owner => _$this._owner;
+  set owner(DocumentReference<Object?>? owner) => _$this._owner = owner;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;

@@ -44,13 +44,6 @@ class _$UserRecordSerializer implements StructuredSerializer<UserRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.uid;
-    if (value != null) {
-      result
-        ..add('uid')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.createdTime;
     if (value != null) {
       result
@@ -62,6 +55,13 @@ class _$UserRecordSerializer implements StructuredSerializer<UserRecord> {
     if (value != null) {
       result
         ..add('phone_number')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.uid;
+    if (value != null) {
+      result
+        ..add('uid')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
@@ -99,10 +99,6 @@ class _$UserRecordSerializer implements StructuredSerializer<UserRecord> {
           result.photoUrl = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'uid':
-          result.uid = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
         case 'created_time':
           result.createdTime = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
@@ -114,6 +110,10 @@ class _$UserRecordSerializer implements StructuredSerializer<UserRecord> {
         case 'wallet':
           result.wallet.replace(serializers.deserialize(value,
               specifiedType: const FullType(WalletStruct))! as WalletStruct);
+          break;
+        case 'uid':
+          result.uid = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -136,13 +136,13 @@ class _$UserRecord extends UserRecord {
   @override
   final String? photoUrl;
   @override
-  final String? uid;
-  @override
   final DateTime? createdTime;
   @override
   final String? phoneNumber;
   @override
   final WalletStruct wallet;
+  @override
+  final String? uid;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -153,10 +153,10 @@ class _$UserRecord extends UserRecord {
       {this.email,
       this.displayName,
       this.photoUrl,
-      this.uid,
       this.createdTime,
       this.phoneNumber,
       required this.wallet,
+      this.uid,
       this.ffRef})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(wallet, r'UserRecord', 'wallet');
@@ -176,10 +176,10 @@ class _$UserRecord extends UserRecord {
         email == other.email &&
         displayName == other.displayName &&
         photoUrl == other.photoUrl &&
-        uid == other.uid &&
         createdTime == other.createdTime &&
         phoneNumber == other.phoneNumber &&
         wallet == other.wallet &&
+        uid == other.uid &&
         ffRef == other.ffRef;
   }
 
@@ -192,10 +192,10 @@ class _$UserRecord extends UserRecord {
                     $jc(
                         $jc($jc($jc(0, email.hashCode), displayName.hashCode),
                             photoUrl.hashCode),
-                        uid.hashCode),
-                    createdTime.hashCode),
-                phoneNumber.hashCode),
-            wallet.hashCode),
+                        createdTime.hashCode),
+                    phoneNumber.hashCode),
+                wallet.hashCode),
+            uid.hashCode),
         ffRef.hashCode));
   }
 
@@ -205,10 +205,10 @@ class _$UserRecord extends UserRecord {
           ..add('email', email)
           ..add('displayName', displayName)
           ..add('photoUrl', photoUrl)
-          ..add('uid', uid)
           ..add('createdTime', createdTime)
           ..add('phoneNumber', phoneNumber)
           ..add('wallet', wallet)
+          ..add('uid', uid)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -229,10 +229,6 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
   String? get photoUrl => _$this._photoUrl;
   set photoUrl(String? photoUrl) => _$this._photoUrl = photoUrl;
 
-  String? _uid;
-  String? get uid => _$this._uid;
-  set uid(String? uid) => _$this._uid = uid;
-
   DateTime? _createdTime;
   DateTime? get createdTime => _$this._createdTime;
   set createdTime(DateTime? createdTime) => _$this._createdTime = createdTime;
@@ -245,6 +241,10 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
   WalletStructBuilder get wallet =>
       _$this._wallet ??= new WalletStructBuilder();
   set wallet(WalletStructBuilder? wallet) => _$this._wallet = wallet;
+
+  String? _uid;
+  String? get uid => _$this._uid;
+  set uid(String? uid) => _$this._uid = uid;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -260,10 +260,10 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
       _email = $v.email;
       _displayName = $v.displayName;
       _photoUrl = $v.photoUrl;
-      _uid = $v.uid;
       _createdTime = $v.createdTime;
       _phoneNumber = $v.phoneNumber;
       _wallet = $v.wallet.toBuilder();
+      _uid = $v.uid;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -292,10 +292,10 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
               email: email,
               displayName: displayName,
               photoUrl: photoUrl,
-              uid: uid,
               createdTime: createdTime,
               phoneNumber: phoneNumber,
               wallet: wallet.build(),
+              uid: uid,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

@@ -212,7 +212,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                           status: 'Done',
                           createdAt: getCurrentTimestamp,
                           video: paymentVideoRecord!.reference,
-                          from: paymentVideoRecord!.author,
+                          from: currentUserReference,
                           to: currentUserReference,
                         );
                         await TransactionRecord.collection

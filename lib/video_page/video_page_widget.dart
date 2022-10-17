@@ -211,7 +211,8 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          if (videoPageVideoRecord.owner != currentUserUid)
+                          if (videoPageVideoRecord.owner !=
+                              currentUserReference)
                             Expanded(
                               child: FFButtonWidget(
                                 onPressed: () async {

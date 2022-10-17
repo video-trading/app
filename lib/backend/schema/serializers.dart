@@ -5,6 +5,7 @@ import 'video_record.dart';
 import 'user_record.dart';
 import 'comment_record.dart';
 import 'transaction_record.dart';
+import 'abc_record.dart';
 
 import 'index.dart';
 
@@ -20,6 +21,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   UserRecord,
   CommentRecord,
   TransactionRecord,
+  AbcRecord,
   WalletStruct,
 ])
 final Serializers serializers = (_$serializers.toBuilder()

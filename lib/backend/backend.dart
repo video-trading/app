@@ -8,6 +8,7 @@ import 'schema/video_record.dart';
 import 'schema/user_record.dart';
 import 'schema/comment_record.dart';
 import 'schema/transaction_record.dart';
+import 'schema/abc_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -19,6 +20,7 @@ export 'schema/video_record.dart';
 export 'schema/user_record.dart';
 export 'schema/comment_record.dart';
 export 'schema/transaction_record.dart';
+export 'schema/abc_record.dart';
 
 /// Functions to query VideoRecords (as a Stream and as a Future).
 Stream<List<VideoRecord>> queryVideoRecord({
@@ -182,6 +184,48 @@ Future<FFFirestorePage<TransactionRecord>> queryTransactionRecordPage({
     queryCollectionPage(
       TransactionRecord.collection,
       TransactionRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query AbcRecords (as a Stream and as a Future).
+Stream<List<AbcRecord>> queryAbcRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      AbcRecord.collection,
+      AbcRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<AbcRecord>> queryAbcRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      AbcRecord.collection,
+      AbcRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<AbcRecord>> queryAbcRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      AbcRecord.collection,
+      AbcRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
