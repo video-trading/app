@@ -202,7 +202,11 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                                 .bodyText1,
                                             validator: (val) {
                                               if (val == null || val.isEmpty) {
-                                                return 'Field is required';
+                                                return FFLocalizations.of(
+                                                        context)
+                                                    .getText(
+                                                  'ydbjubye' /* Field is required */,
+                                                );
                                               }
 
                                               return null;
@@ -278,7 +282,11 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                             maxLines: 10,
                                             validator: (val) {
                                               if (val == null || val.isEmpty) {
-                                                return 'Field is required';
+                                                return FFLocalizations.of(
+                                                        context)
+                                                    .getText(
+                                                  'ouktiwfq' /* Field is required */,
+                                                );
                                               }
 
                                               return null;
@@ -346,7 +354,11 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                             keyboardType: TextInputType.number,
                                             validator: (val) {
                                               if (val == null || val.isEmpty) {
-                                                return 'Field is required';
+                                                return FFLocalizations.of(
+                                                        context)
+                                                    .getText(
+                                                  'k7rz3h4h' /* Field is required */,
+                                                );
                                               }
 
                                               return null;

@@ -382,27 +382,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Save',
       'zh_Hant': '保存',
     },
-    'lldbk6gm': {
+    'ydbjubye': {
       'en': 'Field is required',
       'zh_Hant': '',
     },
-    'len4zohw': {
+    'flh6hw0v': {
       'en': 'Please choose an option from the dropdown',
       'zh_Hant': '',
     },
-    'purf58ja': {
+    'ouktiwfq': {
       'en': 'Field is required',
       'zh_Hant': '',
     },
-    'wgvimw2y': {
+    '6ctt7e35': {
       'en': 'Please choose an option from the dropdown',
       'zh_Hant': '',
     },
-    '3ri7zaeq': {
+    'k7rz3h4h': {
       'en': 'Field is required',
       'zh_Hant': '',
     },
-    'yx92kre3': {
+    'zufjioxh': {
       'en': 'Please choose an option from the dropdown',
       'zh_Hant': '',
     },
@@ -465,6 +465,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '1wug9q4b': {
       'en': 'Comments',
+      'zh_Hant': '',
+    },
+    'agwu03lz': {
+      'en': '[Some hint text...]',
+      'zh_Hant': '',
+    },
+    '12x44zbp': {
+      'en': 'Field is required',
+      'zh_Hant': '',
+    },
+    'xp8dnsnj': {
+      'en': 'Please choose an option from the dropdown',
       'zh_Hant': '',
     },
   },
