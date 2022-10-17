@@ -111,7 +111,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'VideoPage',
               path: 'videoPage',
               requireAuth: true,
-              builder: (context, params) => VideoPageWidget(),
+              builder: (context, params) => VideoPageWidget(
+                id: params.getParam(
+                    'id', ParamType.DocumentReference, false, 'Video'),
+              ),
             ),
             FFRoute(
               name: 'Payment',

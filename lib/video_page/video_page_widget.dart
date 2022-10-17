@@ -5,11 +5,17 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_video_player.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class VideoPageWidget extends StatefulWidget {
-  const VideoPageWidget({Key? key}) : super(key: key);
+  const VideoPageWidget({
+    Key? key,
+    this.id,
+  }) : super(key: key);
+
+  final DocumentReference? id;
 
   @override
   _VideoPageWidgetState createState() => _VideoPageWidgetState();
@@ -26,10 +32,8 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<VideoRecord>>(
-      future: queryVideoRecordOnce(
-        singleRecord: true,
-      ),
+    return StreamBuilder<VideoRecord>(
+      stream: VideoRecord.getDocument(widget.id!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -43,14 +47,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
             ),
           );
         }
-        List<VideoRecord> videoPageVideoRecordList = snapshot.data!;
-        // Return an empty Container when the document does not exist.
-        if (snapshot.data!.isEmpty) {
-          return Container();
-        }
-        final videoPageVideoRecord = videoPageVideoRecordList.isNotEmpty
-            ? videoPageVideoRecordList.first
-            : null;
+        final videoPageVideoRecord = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -70,7 +67,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
               ),
             ),
             title: Text(
-              videoPageVideoRecord!.title!,
+              videoPageVideoRecord.title!,
               style: FlutterFlowTheme.of(context).title2,
             ),
             actions: [],
@@ -88,7 +85,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         FlutterFlowVideoPlayer(
-                          path: videoPageVideoRecord!.video!,
+                          path: videoPageVideoRecord.video!,
                           videoType: VideoType.network,
                           autoPlay: false,
                           looping: false,
@@ -106,7 +103,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                         children: [
                           Expanded(
                             child: Text(
-                              videoPageVideoRecord!.title!,
+                              videoPageVideoRecord.title!,
                               style: FlutterFlowTheme.of(context).title2,
                             ),
                           ),
@@ -122,7 +119,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                             child: Text(
                               dateTimeFormat(
                                 'relative',
-                                videoPageVideoRecord!.createdAt!,
+                                videoPageVideoRecord.createdAt!,
                                 locale:
                                     FFLocalizations.of(context).languageCode,
                               ),
@@ -145,7 +142,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                         children: [
                           Expanded(
                             child: Text(
-                              videoPageVideoRecord!.description!,
+                              videoPageVideoRecord.description!,
                               style: FlutterFlowTheme.of(context).bodyText2,
                             ),
                           ),
@@ -175,7 +172,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                             ),
                             Text(
                               formatNumber(
-                                videoPageVideoRecord!.likes!,
+                                videoPageVideoRecord.likes!,
                                 formatType: FormatType.compact,
                               ),
                               style: FlutterFlowTheme.of(context).bodyText1,
@@ -223,7 +220,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                                 context.pushNamed('Payment');
                               },
                               text: formatNumber(
-                                videoPageVideoRecord!.price!,
+                                videoPageVideoRecord.price!,
                                 formatType: FormatType.custom,
                                 format: 'HKD \$###.0#',
                                 locale: '',
@@ -259,7 +256,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                   stream: queryCommentRecord(
                     queryBuilder: (commentRecord) => commentRecord
                         .where('video',
-                            isEqualTo: videoPageVideoRecord!.reference)
+                            isEqualTo: videoPageVideoRecord.reference)
                         .orderBy('created_at', descending: true),
                     singleRecord: true,
                   ),

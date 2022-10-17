@@ -26,6 +26,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
 
   TextEditingController? descriptionController;
   TextEditingController? titleController;
+  TextEditingController? priceController;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -34,6 +35,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
     super.initState();
     descriptionController = TextEditingController();
     titleController = TextEditingController();
+    priceController = TextEditingController();
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'UploadPage'});
   }
 
@@ -41,6 +43,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
   void dispose() {
     descriptionController?.dispose();
     titleController?.dispose();
+    priceController?.dispose();
     super.dispose();
   }
 
@@ -254,6 +257,59 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1,
                                             maxLines: 10,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  20, 10, 20, 16),
+                                          child: TextFormField(
+                                            controller: priceController,
+                                            autofocus: true,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              labelText: 'Price',
+                                              hintText: 'Price',
+                                              hintStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText2,
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Color(0xFFF1F4F8),
+                                                  width: 2,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Color(0xFFF1F4F8),
+                                                  width: 2,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
+                                              errorBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Color(0x00000000),
+                                                  width: 2,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
+                                              focusedErrorBorder:
+                                                  OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Color(0x00000000),
+                                                  width: 2,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1,
+                                            keyboardType: TextInputType.number,
                                           ),
                                         ),
                                       ],
@@ -496,7 +552,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                             logFirebaseEvent('Button_Backend-Call');
 
                             final videoCreateData = createVideoRecordData(
-                              title: '',
+                              title: titleController!.text,
                               description: '',
                               author: currentUserReference,
                               createdAt: getCurrentTimestamp,
@@ -504,6 +560,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                               likes: 0,
                               cover: uploadedFileUrl1,
                               video: uploadedFileUrl2,
+                              price: double.parse(priceController!.text),
                             );
                             await VideoRecord.collection
                                 .doc()

@@ -172,7 +172,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   child: PagedListView<DocumentSnapshot<Object?>?, VideoRecord>(
                     pagingController: () {
                       final Query<Object?> Function(Query<Object?>)
-                          queryBuilder = (videoRecord) => videoRecord;
+                          queryBuilder =
+                          (videoRecord) => videoRecord.orderBy('created_at');
                       if (_pagingController != null) {
                         final query = queryBuilder(VideoRecord.collection);
                         if (query != _pagingQuery) {
@@ -190,7 +191,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       _pagingController!
                           .addPageRequestListener((nextPageMarker) {
                         queryVideoRecordPage(
-                          queryBuilder: (videoRecord) => videoRecord,
+                          queryBuilder: (videoRecord) =>
+                              videoRecord.orderBy('created_at'),
                           nextPageMarker: nextPageMarker,
                           pageSize: 25,
                           isStream: true,
@@ -248,7 +250,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   'HOME_PAGE_PAGE_Container_lczeky4n_ON_TAP');
                               logFirebaseEvent('Container_Navigate-To');
 
-                              context.pushNamed('VideoPage');
+                              context.pushNamed(
+                                'VideoPage',
+                                queryParams: {
+                                  'id': serializeParam(
+                                    listViewVideoRecord.reference,
+                                    ParamType.DocumentReference,
+                                  ),
+                                }.withoutNulls,
+                              );
                             },
                             child: Container(
                               width: 100,

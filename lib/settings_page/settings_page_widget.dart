@@ -59,15 +59,16 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           AuthUserStreamWidget(
-                            child: Container(
-                              width: 76,
-                              height: 76,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                              ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
                               child: Image.network(
-                                currentUserPhoto,
+                                valueOrDefault<String>(
+                                  currentUserPhoto,
+                                  'https://images.theconversation.com/files/393210/original/file-20210401-13-z6rl6z.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop',
+                                ),
+                                width: 100,
+                                height: 100,
+                                fit: BoxFit.cover,
                               ),
                             ),
                           ),
