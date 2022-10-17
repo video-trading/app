@@ -222,12 +222,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Dislike',
       'zh_Hant': '不喜歡',
     },
-    'cevk6uht': {
-      'en': 'comments',
-      'zh_Hant': '評論',
+    'vkgr8afb': {
+      'en': 'Comments',
+      'zh_Hant': '',
     },
-    'pck7qe16': {
-      'en': 'Trading History',
+    'fnkhgdpw': {
+      'en': 'view all comments',
+      'zh_Hant': '',
+    },
+    'bjcwjg7d': {
+      'en': 'Transactions',
+      'zh_Hant': '',
+    },
+    '8mgw2e3m': {
+      'en': 'view all transactions',
       'zh_Hant': '',
     },
   },
@@ -416,15 +424,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // VideoTradingHistoryPage
   {
-    'o6vwa0i5': {
+    'bgv7n32c': {
       'en': 'Purchased',
       'zh_Hant': '',
     },
-    'wd1vqaqs': {
+    '09s78u2s': {
       'en': 'Video Trading  History',
       'zh_Hant': '',
     },
-    'gbgeg328': {
+    'xtqsd4d1': {
       'en': 'Home',
       'zh_Hant': '',
     },

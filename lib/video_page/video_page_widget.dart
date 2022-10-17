@@ -268,12 +268,12 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                 Divider(),
                 InkWell(
                   onTap: () async {
-                    logFirebaseEvent('VIDEO_PAGE_PAGE_CommentRow_ON_TAP');
-                    logFirebaseEvent('CommentRow_Bottom-Sheet');
+                    logFirebaseEvent(
+                        'VIDEO_PAGE_PAGE_ListTile_wuhan982_ON_TAP');
+                    logFirebaseEvent('ListTile_Bottom-Sheet');
                     await showModalBottomSheet(
                       isScrollControlled: true,
-                      backgroundColor:
-                          FlutterFlowTheme.of(context).primaryBackground,
+                      backgroundColor: Colors.transparent,
                       context: context,
                       builder: (context) {
                         return Padding(
@@ -283,62 +283,58 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                       },
                     ).then((value) => setState(() {}));
                   },
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 10, 10, 10),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'cevk6uht' /* comments */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context).bodyText1,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
+                  child: ListTile(
+                    title: Text(
+                      'Comments',
+                      style: FlutterFlowTheme.of(context).title3,
+                    ),
+                    subtitle: Text(
+                      'view all comments',
+                      style: FlutterFlowTheme.of(context).subtitle2,
+                    ),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Color(0xFF303030),
+                      size: 20,
+                    ),
+                    tileColor: Color(0x00F5F5F5),
+                    dense: false,
                   ),
                 ),
                 Divider(),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                      child: InkWell(
-                        onTap: () async {
-                          logFirebaseEvent(
-                              'VIDEO_PAGE_PAGE_Text_ws9pvcse_ON_TAP');
-                          logFirebaseEvent('Text_Navigate-To');
+                InkWell(
+                  onTap: () async {
+                    logFirebaseEvent(
+                        'VIDEO_PAGE_PAGE_ListTile_6bszclqz_ON_TAP');
+                    logFirebaseEvent('ListTile_Navigate-To');
 
-                          context.pushNamed(
-                            'VideoTradingHistoryPage',
-                            queryParams: {
-                              'video': serializeParam(
-                                videoPageVideoRecord.reference,
-                                ParamType.DocumentReference,
-                              ),
-                            }.withoutNulls,
-                          );
-                        },
-                        child: Text(
-                          'Trading History',
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                    context.pushNamed(
+                      'VideoTradingHistoryPage',
+                      queryParams: {
+                        'video': serializeParam(
+                          videoPageVideoRecord.reference,
+                          ParamType.DocumentReference,
                         ),
-                      ),
+                      }.withoutNulls,
+                    );
+                  },
+                  child: ListTile(
+                    title: Text(
+                      'Transactions',
+                      style: FlutterFlowTheme.of(context).title3,
                     ),
-                  ],
+                    subtitle: Text(
+                      'view all transactions',
+                      style: FlutterFlowTheme.of(context).subtitle2,
+                    ),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Color(0xFF303030),
+                      size: 20,
+                    ),
+                    tileColor: Color(0x00F5F5F5),
+                    dense: false,
+                  ),
                 ),
                 Divider(),
               ],
