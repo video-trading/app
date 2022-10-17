@@ -163,6 +163,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 transaction: params.getParam('transaction',
                     ParamType.DocumentReference, false, 'Transaction'),
               ),
+            ),
+            FFRoute(
+              name: 'VideoTradingHistoryPage',
+              path: 'videoTradingHistoryPage',
+              requireAuth: true,
+              builder: (context, params) => VideoTradingHistoryPageWidget(
+                video: params.getParam(
+                    'video', ParamType.DocumentReference, false, 'Video'),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

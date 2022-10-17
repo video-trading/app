@@ -226,6 +226,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'comments',
       'zh_Hant': '評論',
     },
+    'z9m2ovfh': {
+      'en': 'Trading History',
+      'zh_Hant': '',
+    },
   },
   // PaymentPage
   {
@@ -408,6 +412,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '7siwo5in': {
       'en': 'Home',
       'zh_Hant': '主頁',
+    },
+  },
+  // VideoTradingHistoryPage
+  {
+    'vtv1lvfv': {
+      'en': 'Purchased',
+      'zh_Hant': '',
+    },
+    '08iben27': {
+      'en': 'Video Trading  History',
+      'zh_Hant': '',
+    },
+    'a08mohsu': {
+      'en': 'Home',
+      'zh_Hant': '',
     },
   },
   // CommentBottomSheet

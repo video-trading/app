@@ -264,7 +264,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
               ),
               Divider(),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                 child: StreamBuilder<List<CommentRecord>>(
                   stream: queryCommentRecord(
                     queryBuilder: (commentRecord) => commentRecord
@@ -332,37 +332,42 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                                   ),
                                 ],
                               ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.tag_faces_outlined,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 24,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10, 0, 0, 0),
-                                      child: Text(
-                                        commentRowCommentRecord!.content!,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
                             ],
                           ),
                         ],
                       ),
                     );
                   },
+                ),
+              ),
+              Divider(),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    InkWell(
+                      onTap: () async {
+                        logFirebaseEvent(
+                            'VIDEO_PAGE_PAGE_Text_ws9pvcse_ON_TAP');
+                        logFirebaseEvent('Text_Navigate-To');
+
+                        context.pushNamed(
+                          'VideoTradingHistoryPage',
+                          queryParams: {
+                            'video': serializeParam(
+                              videoPageVideoRecord.reference,
+                              ParamType.DocumentReference,
+                            ),
+                          }.withoutNulls,
+                        );
+                      },
+                      child: Text(
+                        'Trading History',
+                        style: FlutterFlowTheme.of(context).bodyText1,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Divider(),
