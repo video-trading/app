@@ -13,3 +13,5 @@ export 'my_video_page/my_video_page_widget.dart' show MyVideoPageWidget;
 export 'transactions_page/transactions_page_widget.dart'
     show TransactionsPageWidget;
 export 'upload_page/upload_page_widget.dart' show UploadPageWidget;
+export 'transaction_detail_page/transaction_detail_page_widget.dart'
+    show TransactionDetailPageWidget;

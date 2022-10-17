@@ -59,7 +59,7 @@ class _TransactionsPageWidgetState extends State<TransactionsPageWidget> {
           },
         ),
         title: Text(
-          'Order History',
+          'Transactions',
           style: FlutterFlowTheme.of(context).subtitle1,
         ),
         actions: [],
@@ -160,57 +160,77 @@ class _TransactionsPageWidgetState extends State<TransactionsPageWidget> {
                         itemBuilder: (context, _, listViewIndex) {
                           final listViewTransactionRecord =
                               _pagingController!.itemList![listViewIndex];
-                          return Container(
-                            width: double.infinity,
-                            height: 70,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: FlutterFlowTheme.of(context).lineColor,
-                                  offset: Offset(0, 1),
-                                )
-                              ],
-                            ),
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(16, 5, 16, 5),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        listViewTransactionRecord.name!,
-                                        style: FlutterFlowTheme.of(context)
-                                            .subtitle1,
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 5, 0, 0),
-                                        child: Text(
-                                          listViewTransactionRecord.createdAt!
-                                              .toString(),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText2,
-                                        ),
-                                      ),
-                                    ],
+                          return InkWell(
+                            onTap: () async {
+                              logFirebaseEvent(
+                                  'TRANSACTIONS_Container_e7dfvw89_ON_TAP');
+                              logFirebaseEvent('Container_Navigate-To');
+
+                              context.pushNamed(
+                                'TransactionDetailPage',
+                                queryParams: {
+                                  'transaction': serializeParam(
+                                    listViewTransactionRecord.reference,
+                                    ParamType.DocumentReference,
                                   ),
-                                  Text(
-                                    listViewTransactionRecord.amount!
-                                        .toString(),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText2,
-                                  ),
+                                }.withoutNulls,
+                              );
+                            },
+                            child: Container(
+                              width: double.infinity,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color:
+                                        FlutterFlowTheme.of(context).lineColor,
+                                    offset: Offset(0, 1),
+                                  )
                                 ],
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16, 5, 16, 5),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          listViewTransactionRecord.name!,
+                                          style: FlutterFlowTheme.of(context)
+                                              .subtitle1,
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 5, 0, 0),
+                                          child: Text(
+                                            listViewTransactionRecord.createdAt!
+                                                .toString(),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText2,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Text(
+                                      listViewTransactionRecord.amount!
+                                          .toString(),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText2,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           );
