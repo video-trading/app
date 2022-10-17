@@ -34,10 +34,8 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<VideoRecord>>(
-      future: queryVideoRecordOnce(
-        singleRecord: true,
-      ),
+    return StreamBuilder<VideoRecord>(
+      stream: VideoRecord.getDocument(widget.video!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -51,14 +49,7 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
             ),
           );
         }
-        List<VideoRecord> paymentPageVideoRecordList = snapshot.data!;
-        // Return an empty Container when the document does not exist.
-        if (snapshot.data!.isEmpty) {
-          return Container();
-        }
-        final paymentPageVideoRecord = paymentPageVideoRecordList.isNotEmpty
-            ? paymentPageVideoRecordList.first
-            : null;
+        final paymentPageVideoRecord = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -107,7 +98,7 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                paymentPageVideoRecord!.title!,
+                                paymentPageVideoRecord.title!,
                                 style: FlutterFlowTheme.of(context).title1,
                               ),
                               Divider(),
@@ -129,7 +120,7 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
                         ),
                         StreamBuilder<UserRecord>(
                           stream: UserRecord.getDocument(
-                              paymentPageVideoRecord!.owner!),
+                              paymentPageVideoRecord.owner!),
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.
                             if (!snapshot.hasData) {
@@ -173,7 +164,7 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
                         ),
                         Text(
                           formatNumber(
-                            paymentPageVideoRecord!.price!,
+                            paymentPageVideoRecord.price!,
                             formatType: FormatType.custom,
                             format: 'HKD \$',
                             locale: '',
@@ -206,9 +197,8 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
                         logFirebaseEvent(
                             'PAYMENT_PAGE_PAGE_CONFIRM_BTN_ON_TAP');
                         logFirebaseEvent('Button_Braintree-Payment');
-                        final transacAmount = paymentPageVideoRecord!.price!;
-                        final transacDisplayName =
-                            paymentPageVideoRecord!.title;
+                        final transacAmount = paymentPageVideoRecord.price!;
+                        final transacDisplayName = paymentPageVideoRecord.title;
                         if (kIsWeb) {
                           showSnackbar(
                               context, 'Payments not yet supported on web.');
@@ -251,17 +241,17 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
 
                         logFirebaseEvent('Button_Custom-Action');
                         await actions.updateOwner(
-                          paymentPageVideoRecord!.reference,
+                          paymentPageVideoRecord.reference,
                         );
                         logFirebaseEvent('Button_Backend-Call');
 
                         final transactionCreateData =
                             createTransactionRecordData(
-                          name: paymentPageVideoRecord!.title,
-                          amount: paymentPageVideoRecord!.price,
+                          name: paymentPageVideoRecord.title,
+                          amount: paymentPageVideoRecord.price,
                           status: 'Done',
                           createdAt: getCurrentTimestamp,
-                          video: paymentPageVideoRecord!.reference,
+                          video: paymentPageVideoRecord.reference,
                           from: currentUserReference,
                           to: currentUserReference,
                         );
