@@ -166,7 +166,7 @@ class _TransactionsPageWidgetState extends State<TransactionsPageWidget> {
                               _pagingController!.itemList![listViewIndex];
                           return Container(
                             width: double.infinity,
-                            height: 60,
+                            height: 70,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
