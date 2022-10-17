@@ -207,10 +207,33 @@ class _VideoTradingHistoryPageWidgetState
                                         }
                                         final usernameUserRecord =
                                             snapshot.data!;
-                                        return Text(
-                                          usernameUserRecord.displayName!,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                        return InkWell(
+                                          onTap: () async {
+                                            logFirebaseEvent(
+                                                'VIDEO_TRADING_HISTORY_Username_ON_TAP');
+                                            logFirebaseEvent(
+                                                'Username_Navigate-To');
+
+                                            context.pushNamed(
+                                              'TransactionsPage',
+                                              queryParams: {
+                                                'users': serializeParam(
+                                                  usernameUserRecord.reference,
+                                                  ParamType.DocumentReference,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          },
+                                          child: Text(
+                                            usernameUserRecord.displayName!,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  decoration:
+                                                      TextDecoration.underline,
+                                                ),
+                                          ),
                                         );
                                       },
                                     ),

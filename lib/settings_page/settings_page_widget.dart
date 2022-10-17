@@ -160,7 +160,15 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                               'SETTINGS_PAGE_PAGE_Row_afo57vo1_ON_TAP');
                           logFirebaseEvent('Row_Navigate-To');
 
-                          context.pushNamed('TransactionsPage');
+                          context.pushNamed(
+                            'TransactionsPage',
+                            queryParams: {
+                              'users': serializeParam(
+                                currentUserReference,
+                                ParamType.DocumentReference,
+                              ),
+                            }.withoutNulls,
+                          );
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,

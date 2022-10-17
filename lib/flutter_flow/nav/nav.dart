@@ -147,7 +147,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'TransactionsPage',
               path: 'transactionsPage',
               requireAuth: true,
-              builder: (context, params) => TransactionsPageWidget(),
+              builder: (context, params) => TransactionsPageWidget(
+                users: params.getParam(
+                    'users', ParamType.DocumentReference, false, 'User'),
+              ),
             ),
             FFRoute(
               name: 'UploadPage',
