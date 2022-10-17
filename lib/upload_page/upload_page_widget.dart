@@ -645,6 +645,21 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                             onPressed: () async {
                               logFirebaseEvent(
                                   'UPLOAD_PAGE_PAGE_SAVE_BTN_ON_TAP');
+                              logFirebaseEvent('Button_Validate-Form');
+                              if (formKey.currentState == null ||
+                                  !formKey.currentState!.validate()) {
+                                return;
+                              }
+
+                              if (uploadedFileUrl1 == null ||
+                                  uploadedFileUrl1.isEmpty) {
+                                return;
+                              }
+                              if (uploadedFileUrl2 == null ||
+                                  uploadedFileUrl2.isEmpty) {
+                                return;
+                              }
+
                               logFirebaseEvent('Button_Backend-Call');
 
                               final videoCreateData = createVideoRecordData(
