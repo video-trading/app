@@ -165,7 +165,6 @@ class _MyVideoPageWidgetState extends State<MyVideoPageWidget> {
                         },
                         child: Container(
                           width: double.infinity,
-                          height: 60,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
