@@ -1,3 +1,4 @@
+import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../components/comment_bottom_sheet_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -210,39 +211,41 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Expanded(
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                logFirebaseEvent(
-                                    'VIDEO_PAGE_PAGE_PURCHASE_BTN_ON_TAP');
-                                logFirebaseEvent('Button_Navigate-To');
+                          if (videoPageVideoRecord.author !=
+                              currentUserReference)
+                            Expanded(
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  logFirebaseEvent(
+                                      'VIDEO_PAGE_PAGE_PURCHASE_BTN_ON_TAP');
+                                  logFirebaseEvent('Button_Navigate-To');
 
-                                context.pushNamed('Payment');
-                              },
-                              text: formatNumber(
-                                videoPageVideoRecord.price!,
-                                formatType: FormatType.custom,
-                                format: 'HKD \$###.0#',
-                                locale: '',
-                              ),
-                              options: FFButtonOptions(
-                                height: 40,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                    ),
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1,
+                                  context.pushNamed('Payment');
+                                },
+                                text: formatNumber(
+                                  videoPageVideoRecord.price!,
+                                  formatType: FormatType.custom,
+                                  format: 'HKD \$###.0#',
+                                  locale: '',
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                options: FFButtonOptions(
+                                  height: 40,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .subtitle2
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                      ),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
                               ),
                             ),
-                          ),
                         ],
                       ),
                     ),
