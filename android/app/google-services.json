@@ -39,10 +39,54 @@
               "client_type": 3
             },
             {
-              "client_id": "190602066490-chehc268kouikonan2ip30s7g4e0lfvq.apps.googleusercontent.com",
+              "client_id": "190602066490-88g40c9tk9neaharh3h8nkostu9a8h1o.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.mycompany.video2trade"
+                "bundle_id": "com.trade.video2trade"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190602066490:android:7d570c46679722bd36d303",
+        "android_client_info": {
+          "package_name": "com.trade.video2trade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190602066490-lgbirfm1lfmd2uf087egbv52en2e60e2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.trade.video2trade",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "190602066490-b6l8bbfg8ru383jvb9cnefcu4ifu79ev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCglrAqIxdg-VXIeVf6O6Sym__MxRkk4ZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190602066490-b6l8bbfg8ru383jvb9cnefcu4ifu79ev.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "190602066490-88g40c9tk9neaharh3h8nkostu9a8h1o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.trade.video2trade"
               }
             }
           ]

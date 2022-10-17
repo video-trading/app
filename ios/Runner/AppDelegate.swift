@@ -10,7 +10,7 @@ import Flutter
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
-    BTAppContextSwitcher.setReturnURLScheme("com.mycompany.video2trade.braintree")
+    BTAppContextSwitcher.setReturnURLScheme("com.trade.video2trade.braintree")
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 }

@@ -132,6 +132,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => ProfilePageWidget(),
             ),
             FFRoute(
+              name: 'TransactionsPage',
+              path: 'transactionsPage',
+              requireAuth: true,
+              builder: (context, params) => TransactionsPageWidget(),
+            ),
+            FFRoute(
               name: 'UploadPage',
               path: 'uploadPage',
               requireAuth: true,

@@ -28,7 +28,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.190602066490-chehc268kouikonan2ip30s7g4e0lfvq</string>
+                <string>com.googleusercontent.apps.190602066490-88g40c9tk9neaharh3h8nkostu9a8h1o</string>
                 
             </array>
         </dict>
@@ -38,10 +38,10 @@
             <key>CFBundleTypeRole</key>
             <string>Editor</string>
             <key>CFBundleURLName</key>
-            <string>com.mycompany.video2trade.braintree</string>
+            <string>com.trade.video2trade.braintree</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.mycompany.video2trade.braintree</string>
+                <string>com.trade.video2trade.braintree</string>
             </array>
         </dict>
 

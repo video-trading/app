@@ -7,6 +7,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'schema/video_record.dart';
 import 'schema/user_record.dart';
 import 'schema/comment_record.dart';
+import 'schema/transaction_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -17,6 +18,7 @@ export 'schema/serializers.dart';
 export 'schema/video_record.dart';
 export 'schema/user_record.dart';
 export 'schema/comment_record.dart';
+export 'schema/transaction_record.dart';
 
 /// Functions to query VideoRecords (as a Stream and as a Future).
 Stream<List<VideoRecord>> queryVideoRecord({
@@ -138,6 +140,48 @@ Future<FFFirestorePage<CommentRecord>> queryCommentRecordPage({
     queryCollectionPage(
       CommentRecord.collection,
       CommentRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query TransactionRecords (as a Stream and as a Future).
+Stream<List<TransactionRecord>> queryTransactionRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      TransactionRecord.collection,
+      TransactionRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<TransactionRecord>> queryTransactionRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      TransactionRecord.collection,
+      TransactionRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<TransactionRecord>> queryTransactionRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      TransactionRecord.collection,
+      TransactionRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

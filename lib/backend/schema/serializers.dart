@@ -4,6 +4,7 @@ import 'package:from_css_color/from_css_color.dart';
 import 'video_record.dart';
 import 'user_record.dart';
 import 'comment_record.dart';
+import 'transaction_record.dart';
 
 import 'index.dart';
 
@@ -18,6 +19,8 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   VideoRecord,
   UserRecord,
   CommentRecord,
+  TransactionRecord,
+  WalletStruct,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

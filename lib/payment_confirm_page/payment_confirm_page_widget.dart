@@ -2,7 +2,6 @@ import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -125,10 +124,6 @@ class _PaymentConfirmPageWidgetState extends State<PaymentConfirmPageWidget> {
                           onPressed: () async {
                             logFirebaseEvent(
                                 'PAYMENT_CONFIRM_GO_HOME_BTN_ON_TAP');
-                            logFirebaseEvent('Button_Custom-Action');
-                            await actions.updateOwner(
-                              paymentConfirmPageVideoRecord!.reference,
-                            );
                             logFirebaseEvent('Button_Navigate-To');
 
                             context.goNamed('HomePage');

@@ -17,7 +17,11 @@ class _$UserRecordSerializer implements StructuredSerializer<UserRecord> {
   @override
   Iterable<Object?> serialize(Serializers serializers, UserRecord object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
+    final result = <Object?>[
+      'wallet',
+      serializers.serialize(object.wallet,
+          specifiedType: const FullType(WalletStruct)),
+    ];
     Object? value;
     value = object.email;
     if (value != null) {
@@ -107,6 +111,10 @@ class _$UserRecordSerializer implements StructuredSerializer<UserRecord> {
           result.phoneNumber = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'wallet':
+          result.wallet.replace(serializers.deserialize(value,
+              specifiedType: const FullType(WalletStruct))! as WalletStruct);
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -134,6 +142,8 @@ class _$UserRecord extends UserRecord {
   @override
   final String? phoneNumber;
   @override
+  final WalletStruct wallet;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UserRecord([void Function(UserRecordBuilder)? updates]) =>
@@ -146,8 +156,11 @@ class _$UserRecord extends UserRecord {
       this.uid,
       this.createdTime,
       this.phoneNumber,
+      required this.wallet,
       this.ffRef})
-      : super._();
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(wallet, r'UserRecord', 'wallet');
+  }
 
   @override
   UserRecord rebuild(void Function(UserRecordBuilder) updates) =>
@@ -166,6 +179,7 @@ class _$UserRecord extends UserRecord {
         uid == other.uid &&
         createdTime == other.createdTime &&
         phoneNumber == other.phoneNumber &&
+        wallet == other.wallet &&
         ffRef == other.ffRef;
   }
 
@@ -175,11 +189,13 @@ class _$UserRecord extends UserRecord {
         $jc(
             $jc(
                 $jc(
-                    $jc($jc($jc(0, email.hashCode), displayName.hashCode),
-                        photoUrl.hashCode),
-                    uid.hashCode),
-                createdTime.hashCode),
-            phoneNumber.hashCode),
+                    $jc(
+                        $jc($jc($jc(0, email.hashCode), displayName.hashCode),
+                            photoUrl.hashCode),
+                        uid.hashCode),
+                    createdTime.hashCode),
+                phoneNumber.hashCode),
+            wallet.hashCode),
         ffRef.hashCode));
   }
 
@@ -192,6 +208,7 @@ class _$UserRecord extends UserRecord {
           ..add('uid', uid)
           ..add('createdTime', createdTime)
           ..add('phoneNumber', phoneNumber)
+          ..add('wallet', wallet)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -224,6 +241,11 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
   String? get phoneNumber => _$this._phoneNumber;
   set phoneNumber(String? phoneNumber) => _$this._phoneNumber = phoneNumber;
 
+  WalletStructBuilder? _wallet;
+  WalletStructBuilder get wallet =>
+      _$this._wallet ??= new WalletStructBuilder();
+  set wallet(WalletStructBuilder? wallet) => _$this._wallet = wallet;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -241,6 +263,7 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
       _uid = $v.uid;
       _createdTime = $v.createdTime;
       _phoneNumber = $v.phoneNumber;
+      _wallet = $v.wallet.toBuilder();
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -262,15 +285,29 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
   UserRecord build() => _build();
 
   _$UserRecord _build() {
-    final _$result = _$v ??
-        new _$UserRecord._(
-            email: email,
-            displayName: displayName,
-            photoUrl: photoUrl,
-            uid: uid,
-            createdTime: createdTime,
-            phoneNumber: phoneNumber,
-            ffRef: ffRef);
+    _$UserRecord _$result;
+    try {
+      _$result = _$v ??
+          new _$UserRecord._(
+              email: email,
+              displayName: displayName,
+              photoUrl: photoUrl,
+              uid: uid,
+              createdTime: createdTime,
+              phoneNumber: phoneNumber,
+              wallet: wallet.build(),
+              ffRef: ffRef);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'wallet';
+        wallet.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'UserRecord', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

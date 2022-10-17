@@ -1,9 +1,12 @@
+import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../backend/braintree/payment_manager.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../custom_code/actions/index.dart' as actions;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -196,6 +199,25 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                         showSnackbar(context, 'Success!');
                         transactionId = paymentResponse.transactionId!;
 
+                        logFirebaseEvent('Button_Custom-Action');
+                        await actions.updateOwner(
+                          paymentVideoRecord!.reference,
+                        );
+                        logFirebaseEvent('Button_Backend-Call');
+
+                        final transactionCreateData =
+                            createTransactionRecordData(
+                          name: paymentVideoRecord!.title,
+                          amount: paymentVideoRecord!.price,
+                          status: 'Done',
+                          createdAt: getCurrentTimestamp,
+                          video: paymentVideoRecord!.reference,
+                          from: paymentVideoRecord!.author,
+                          to: currentUserReference,
+                        );
+                        await TransactionRecord.collection
+                            .doc()
+                            .set(transactionCreateData);
                         logFirebaseEvent('Button_Navigate-To');
 
                         context.goNamed('PaymentConfirmPage');

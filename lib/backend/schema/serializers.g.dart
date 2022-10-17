@@ -8,8 +8,10 @@ part of 'serializers.dart';
 
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(CommentRecord.serializer)
+      ..add(TransactionRecord.serializer)
       ..add(UserRecord.serializer)
       ..add(VideoRecord.serializer)
+      ..add(WalletStruct.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>()))

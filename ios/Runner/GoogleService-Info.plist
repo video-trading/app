@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>190602066490-chehc268kouikonan2ip30s7g4e0lfvq.apps.googleusercontent.com</string>
+	<string>190602066490-88g40c9tk9neaharh3h8nkostu9a8h1o.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.190602066490-chehc268kouikonan2ip30s7g4e0lfvq</string>
+	<string>com.googleusercontent.apps.190602066490-88g40c9tk9neaharh3h8nkostu9a8h1o</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>190602066490-ahi2ol4q5o4ifauk6nbv21m2up8bgnoc.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.mycompany.video2trade</string>
+	<string>com.trade.video2trade</string>
 	<key>PROJECT_ID</key>
 	<string>video2trade-5723a</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:190602066490:ios:dd71fac6ea90a74936d303</string>
+	<string>1:190602066490:ios:d6df437ded46112136d303</string>
 </dict>
 </plist>
