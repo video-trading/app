@@ -84,10 +84,9 @@ class _TransactionsPageWidgetState extends State<TransactionsPageWidget> {
                         TransactionRecord>(
                       pagingController: () {
                         final Query<Object?> Function(Query<Object?>)
-                            queryBuilder =
-                            (transactionRecord) => transactionRecord
-                                .where('from', isEqualTo: currentUserReference)
-                                .where('to', isEqualTo: currentUserReference);
+                            queryBuilder = (transactionRecord) =>
+                                transactionRecord.where('from',
+                                    isEqualTo: currentUserReference);
                         if (_pagingController != null) {
                           final query =
                               queryBuilder(TransactionRecord.collection);
@@ -109,11 +108,8 @@ class _TransactionsPageWidgetState extends State<TransactionsPageWidget> {
                             .addPageRequestListener((nextPageMarker) {
                           queryTransactionRecordPage(
                             queryBuilder: (transactionRecord) =>
-                                transactionRecord
-                                    .where('from',
-                                        isEqualTo: currentUserReference)
-                                    .where('to',
-                                        isEqualTo: currentUserReference),
+                                transactionRecord.where('from',
+                                    isEqualTo: currentUserReference),
                             nextPageMarker: nextPageMarker,
                             pageSize: 25,
                             isStream: true,
