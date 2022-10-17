@@ -226,7 +226,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'comments',
       'zh_Hant': '評論',
     },
-    'z9m2ovfh': {
+    'pck7qe16': {
       'en': 'Trading History',
       'zh_Hant': '',
     },
@@ -416,15 +416,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // VideoTradingHistoryPage
   {
-    'vtv1lvfv': {
+    'o6vwa0i5': {
       'en': 'Purchased',
       'zh_Hant': '',
     },
-    '08iben27': {
+    'wd1vqaqs': {
       'en': 'Video Trading  History',
       'zh_Hant': '',
     },
-    'a08mohsu': {
+    'gbgeg328': {
       'en': 'Home',
       'zh_Hant': '',
     },
