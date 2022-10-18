@@ -224,19 +224,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'p6jhmf1e': {
       'en': 'Comments',
-      'zh_Hant': '',
+      'zh_Hant': '评论',
     },
     '9ztnbda9': {
       'en': 'view all comments',
-      'zh_Hant': '',
+      'zh_Hant': '查看全部评论',
     },
     'c8cgf2jr': {
       'en': 'Transactions',
-      'zh_Hant': '',
+      'zh_Hant': '交易记录',
     },
     'gvxb1pia': {
       'en': 'view all transactions',
-      'zh_Hant': '',
+      'zh_Hant': '查看全部交易记录',
     },
   },
   // PaymentPage
@@ -252,7 +252,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'm9mqcnjp': {
       'en':
           'You may see a temporary hold on your payment method in the amount of your Taskers hourly rate of \$15. You can cancel at any time. Tasks cancelled less than 24 hours before start time may be billed a cancellation fee of one our. Tasks have a one-hour minimum.',
-      'zh_Hant': '你可能会在你的账单上看到一个On Hold的账单。你可以在这个时间内取消你的账单。',
+      'zh_Hant': '你可能会在你的账单上看到一个On Hold的账单。你可以在一个时间内取消你的账单。',
     },
     'wy71fepg': {
       'en': 'Confirm',
@@ -454,11 +454,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'mo01ljmf': {
       'en': 'Video Trading  History',
-      'zh_Hant': '交易记录呀',
+      'zh_Hant': '交易历史记录',
     },
     '6f1fr02n': {
       'en': 'Home',
       'zh_Hant': '主页',
+    },
+  },
+  // HomePageList
+  {
+    'lrxsuq6z': {
+      'en': 'Search events here...',
+      'zh_Hant': '',
+    },
+    'cu676bj6': {
+      'en': 'Map View',
+      'zh_Hant': '',
+    },
+    'jxxsly1z': {
+      'en': 'Shop',
+      'zh_Hant': '',
     },
   },
   // CommentBottomSheet

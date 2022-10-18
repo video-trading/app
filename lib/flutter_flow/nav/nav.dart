@@ -175,6 +175,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 video: params.getParam(
                     'video', ParamType.DocumentReference, false, 'Video'),
               ),
+            ),
+            FFRoute(
+              name: 'HomePageList',
+              path: 'homePageList',
+              requireAuth: true,
+              builder: (context, params) => HomePageListWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

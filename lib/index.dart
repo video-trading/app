@@ -17,3 +17,4 @@ export 'transaction_detail_page/transaction_detail_page_widget.dart'
     show TransactionDetailPageWidget;
 export 'video_trading_history_page/video_trading_history_page_widget.dart'
     show VideoTradingHistoryPageWidget;
+export 'home_page_list/home_page_list_widget.dart' show HomePageListWidget;

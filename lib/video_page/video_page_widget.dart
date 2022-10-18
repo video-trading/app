@@ -106,7 +106,13 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                             Expanded(
                               child: Text(
                                 videoPageVideoRecord.title!,
-                                style: FlutterFlowTheme.of(context).title2,
+                                style: FlutterFlowTheme.of(context)
+                                    .title2
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                               ),
                             ),
                           ],
@@ -126,26 +132,12 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                                       FFLocalizations.of(context).languageCode,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .subtitle1
+                                    .bodyText1
                                     .override(
                                       fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal,
                                     ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                videoPageVideoRecord.description!,
-                                style: FlutterFlowTheme.of(context).bodyText2,
                               ),
                             ),
                           ],
@@ -162,12 +154,12 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                                 borderColor: Colors.transparent,
                                 borderRadius: 30,
                                 borderWidth: 1,
-                                buttonSize: 60,
+                                buttonSize: 40,
                                 icon: Icon(
                                   Icons.thumb_up,
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
-                                  size: 30,
+                                  size: 22,
                                 ),
                                 onPressed: () {
                                   print('IconButton pressed ...');
@@ -189,12 +181,12 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                                 borderColor: Colors.transparent,
                                 borderRadius: 30,
                                 borderWidth: 1,
-                                buttonSize: 60,
+                                buttonSize: 40,
                                 icon: Icon(
                                   Icons.thumb_down,
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
-                                  size: 30,
+                                  size: 22,
                                 ),
                                 onPressed: () {
                                   print('IconButton pressed ...');
@@ -210,6 +202,71 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                           ),
                         ],
                       ),
+                      Divider(),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
+                        child: StreamBuilder<UserRecord>(
+                          stream: UserRecord.getDocument(
+                              videoPageVideoRecord.owner!),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50,
+                                  height: 50,
+                                  child: CircularProgressIndicator(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
+                                  ),
+                                ),
+                              );
+                            }
+                            final userRowUserRecord = snapshot.data!;
+                            return InkWell(
+                              onTap: () async {
+                                logFirebaseEvent(
+                                    'VIDEO_PAGE_PAGE_userRow_ON_TAP');
+                                logFirebaseEvent('userRow_navigate_to');
+
+                                context.pushNamed(
+                                  'TransactionsPage',
+                                  queryParams: {
+                                    'users': serializeParam(
+                                      userRowUserRecord.reference,
+                                      ParamType.DocumentReference,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image.network(
+                                      userRowUserRecord.photoUrl!,
+                                      width: 50,
+                                      height: 50,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5, 0, 0, 0),
+                                    child: Text(
+                                      userRowUserRecord.displayName!,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      Divider(),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
                         child: Row(
@@ -289,13 +346,16 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                       FFLocalizations.of(context).getText(
                         'p6jhmf1e' /* Comments */,
                       ),
-                      style: FlutterFlowTheme.of(context).title3,
+                      style: FlutterFlowTheme.of(context).subtitle1,
                     ),
                     subtitle: Text(
                       FFLocalizations.of(context).getText(
                         '9ztnbda9' /* view all comments */,
                       ),
-                      style: FlutterFlowTheme.of(context).subtitle2,
+                      style: FlutterFlowTheme.of(context).subtitle2.override(
+                            fontFamily: 'Poppins',
+                            fontSize: 12,
+                          ),
                     ),
                     trailing: Icon(
                       Icons.arrow_forward_ios,
@@ -328,13 +388,16 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                       FFLocalizations.of(context).getText(
                         'c8cgf2jr' /* Transactions */,
                       ),
-                      style: FlutterFlowTheme.of(context).title3,
+                      style: FlutterFlowTheme.of(context).subtitle1,
                     ),
                     subtitle: Text(
                       FFLocalizations.of(context).getText(
                         'gvxb1pia' /* view all transactions */,
                       ),
-                      style: FlutterFlowTheme.of(context).subtitle2,
+                      style: FlutterFlowTheme.of(context).subtitle2.override(
+                            fontFamily: 'Poppins',
+                            fontSize: 12,
+                          ),
                     ),
                     trailing: Icon(
                       Icons.arrow_forward_ios,
