@@ -252,7 +252,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'm9mqcnjp': {
       'en':
           'You may see a temporary hold on your payment method in the amount of your Taskers hourly rate of \$15. You can cancel at any time. Tasks cancelled less than 24 hours before start time may be billed a cancellation fee of one our. Tasks have a one-hour minimum.',
-      'zh_Hant': '',
+      'zh_Hant': '你可能会在你的账单上看到一个On Hold的账单。你可以在这个时间内取消你的账单。',
     },
     'wy71fepg': {
       'en': 'Confirm',
@@ -388,23 +388,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'flh6hw0v': {
       'en': 'Please choose an option from the dropdown',
-      'zh_Hant': '',
+      'zh_Hant': '请从下拉菜单中选择一个选项',
     },
     'ouktiwfq': {
       'en': 'Field is required',
-      'zh_Hant': '',
+      'zh_Hant': '这个部分是必须的',
     },
     '6ctt7e35': {
       'en': 'Please choose an option from the dropdown',
-      'zh_Hant': '',
+      'zh_Hant': '请从下拉菜单中选择一个选项',
     },
     'k7rz3h4h': {
       'en': 'Field is required',
-      'zh_Hant': '',
+      'zh_Hant': '这个部分是必须的',
     },
     'zufjioxh': {
       'en': 'Please choose an option from the dropdown',
-      'zh_Hant': '',
+      'zh_Hant': '请从下拉菜单中选择一个选项',
     },
     'zbcy26d7': {
       'en': 'Home',
@@ -450,34 +450,34 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'i9olxcxx': {
       'en': 'Purchased',
-      'zh_Hant': '',
+      'zh_Hant': '购买',
     },
     'mo01ljmf': {
       'en': 'Video Trading  History',
-      'zh_Hant': '',
+      'zh_Hant': '交易记录呀',
     },
     '6f1fr02n': {
       'en': 'Home',
-      'zh_Hant': '',
+      'zh_Hant': '主页',
     },
   },
   // CommentBottomSheet
   {
     '1wug9q4b': {
       'en': 'Comments',
-      'zh_Hant': '',
+      'zh_Hant': '评论',
     },
     'agwu03lz': {
       'en': 'Comment...',
-      'zh_Hant': '',
+      'zh_Hant': '评论',
     },
     '12x44zbp': {
       'en': 'Field is required',
-      'zh_Hant': '',
+      'zh_Hant': '这个项是必须的',
     },
     'xp8dnsnj': {
       'en': 'Please choose an option from the dropdown',
-      'zh_Hant': '',
+      'zh_Hant': '请从下拉菜单中选择一个选项',
     },
   },
   // Miscellaneous
