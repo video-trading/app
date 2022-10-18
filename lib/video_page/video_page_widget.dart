@@ -58,7 +58,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
             leading: InkWell(
               onTap: () async {
                 logFirebaseEvent('VIDEO_PAGE_PAGE_Icon_gyiadnrv_ON_TAP');
-                logFirebaseEvent('Icon_Navigate-Back');
+                logFirebaseEvent('Icon_navigate_back');
                 context.pop();
               },
               child: Icon(
@@ -223,7 +223,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                                   onPressed: () async {
                                     logFirebaseEvent(
                                         'VIDEO_PAGE_PAGE_PURCHASE_BTN_ON_TAP');
-                                    logFirebaseEvent('Button_Navigate-To');
+                                    logFirebaseEvent('Button_navigate_to');
 
                                     context.pushNamed(
                                       'PaymentPage',
@@ -270,7 +270,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                   onTap: () async {
                     logFirebaseEvent(
                         'VIDEO_PAGE_PAGE_ListTile_wuhan982_ON_TAP');
-                    logFirebaseEvent('ListTile_Bottom-Sheet');
+                    logFirebaseEvent('ListTile_bottom_sheet');
                     await showModalBottomSheet(
                       isScrollControlled: true,
                       backgroundColor:
@@ -311,7 +311,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                   onTap: () async {
                     logFirebaseEvent(
                         'VIDEO_PAGE_PAGE_ListTile_6bszclqz_ON_TAP');
-                    logFirebaseEvent('ListTile_Navigate-To');
+                    logFirebaseEvent('ListTile_navigate_to');
 
                     context.pushNamed(
                       'VideoTradingHistoryPage',

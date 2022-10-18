@@ -74,7 +74,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
             ),
             onPressed: () async {
               logFirebaseEvent('UPLOAD_PAGE_PAGE_close_ICN_ON_TAP');
-              logFirebaseEvent('IconButton_Navigate-To');
+              logFirebaseEvent('IconButton_navigate_to');
 
               context.goNamed('HomePage');
             },
@@ -439,7 +439,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                               logFirebaseEvent(
                                                   'UPLOAD_PAGE_PAGE_cover_ON_TAP');
                                               logFirebaseEvent(
-                                                  'cover_Upload-Photo-Video');
+                                                  'cover_upload_photo_video');
                                               final selectedMedia =
                                                   await selectMediaWithSourceBottomSheet(
                                                 context: context,
@@ -556,7 +556,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                                 logFirebaseEvent(
                                                     'UPLOAD_PAGE_PAGE_video_ON_TAP');
                                                 logFirebaseEvent(
-                                                    'video_Upload-Photo-Video');
+                                                    'video_upload_photo_video');
                                                 final selectedMedia =
                                                     await selectMediaWithSourceBottomSheet(
                                                   context: context,
@@ -660,7 +660,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                             onPressed: () async {
                               logFirebaseEvent(
                                   'UPLOAD_PAGE_PAGE_SAVE_BTN_ON_TAP');
-                              logFirebaseEvent('Button_Validate-Form');
+                              logFirebaseEvent('Button_validate_form');
                               if (formKey.currentState == null ||
                                   !formKey.currentState!.validate()) {
                                 return;
@@ -675,7 +675,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                 return;
                               }
 
-                              logFirebaseEvent('Button_Backend-Call');
+                              logFirebaseEvent('Button_backend_call');
 
                               final videoCreateData = createVideoRecordData(
                                 title: titleController!.text,
@@ -692,7 +692,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                               await VideoRecord.collection
                                   .doc()
                                   .set(videoCreateData);
-                              logFirebaseEvent('Button_Show-Snack-Bar');
+                              logFirebaseEvent('Button_show_snack_bar');
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
@@ -706,7 +706,7 @@ class _UploadPageWidgetState extends State<UploadPageWidget> {
                                   backgroundColor: Color(0x00000000),
                                 ),
                               );
-                              logFirebaseEvent('Button_Navigate-To');
+                              logFirebaseEvent('Button_navigate_to');
 
                               context.pushNamed('HomePage');
                             },

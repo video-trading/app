@@ -61,7 +61,7 @@ class _VideoTradingHistoryPageWidgetState
           ),
           onPressed: () async {
             logFirebaseEvent('VIDEO_TRADING_HISTORY_chevron_left_ICN_O');
-            logFirebaseEvent('IconButton_Navigate-Back');
+            logFirebaseEvent('IconButton_navigate_back');
             context.pop();
           },
         ),
@@ -212,7 +212,7 @@ class _VideoTradingHistoryPageWidgetState
                                             logFirebaseEvent(
                                                 'VIDEO_TRADING_HISTORY_Username_ON_TAP');
                                             logFirebaseEvent(
-                                                'Username_Navigate-To');
+                                                'Username_navigate_to');
 
                                             context.pushNamed(
                                               'TransactionsPage',

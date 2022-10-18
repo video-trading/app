@@ -61,7 +61,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
           ),
           onPressed: () async {
             logFirebaseEvent('PROFILE_chevron_left_ICN_ON_TAP');
-            logFirebaseEvent('IconButton_Navigate-Back');
+            logFirebaseEvent('IconButton_navigate_back');
             context.pop();
           },
         ),
@@ -111,7 +111,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                       FFButtonWidget(
                         onPressed: () async {
                           logFirebaseEvent('PROFILE_CHANGE_PHOTO_BTN_ON_TAP');
-                          logFirebaseEvent('Button_Upload-Photo-Video');
+                          logFirebaseEvent('Button_upload_photo_video');
                           final selectedMedia = await selectMedia(
                             mediaSource: MediaSource.photoGallery,
                             multiImage: false,
@@ -287,14 +287,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                     child: FFButtonWidget(
                       onPressed: () async {
                         logFirebaseEvent('PROFILE_SAVE_CHANGES_BTN_ON_TAP');
-                        logFirebaseEvent('Button_Backend-Call');
+                        logFirebaseEvent('Button_backend_call');
 
                         final userUpdateData = createUserRecordData(
                           displayName: yourNameController!.text,
                           photoUrl: uploadedFileUrl,
                         );
                         await currentUserReference!.update(userUpdateData);
-                        logFirebaseEvent('Button_Navigate-Back');
+                        logFirebaseEvent('Button_navigate_back');
                         context.pop();
                       },
                       text: FFLocalizations.of(context).getText(

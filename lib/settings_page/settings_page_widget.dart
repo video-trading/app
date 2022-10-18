@@ -158,7 +158,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                         onTap: () async {
                           logFirebaseEvent(
                               'SETTINGS_PAGE_PAGE_Row_afo57vo1_ON_TAP');
-                          logFirebaseEvent('Row_Navigate-To');
+                          logFirebaseEvent('Row_navigate_to');
 
                           context.pushNamed(
                             'TransactionsPage',
@@ -216,7 +216,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                           onTap: () async {
                             logFirebaseEvent(
                                 'SETTINGS_PAGE_PAGE_Row_bju0dkjg_ON_TAP');
-                            logFirebaseEvent('Row_Navigate-To');
+                            logFirebaseEvent('Row_navigate_to');
 
                             context.pushNamed('ProfilePage');
                           },
@@ -267,7 +267,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                           onTap: () async {
                             logFirebaseEvent(
                                 'SETTINGS_PAGE_PAGE_Row_5irek1en_ON_TAP');
-                            logFirebaseEvent('Row_Navigate-To');
+                            logFirebaseEvent('Row_navigate_to');
 
                             context.pushNamed('MyVideoPage');
                           },
@@ -353,10 +353,10 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                         onPressed: () async {
                           logFirebaseEvent(
                               'SETTINGS_PAGE_PAGE_LOG_OUT_BTN_ON_TAP');
-                          logFirebaseEvent('Button_Auth');
+                          logFirebaseEvent('Button_auth');
                           GoRouter.of(context).prepareAuthEvent();
                           await signOut();
-                          logFirebaseEvent('Button_Navigate-To');
+                          logFirebaseEvent('Button_navigate_to');
 
                           context.goNamedAuth('OnBoarding', mounted);
                         },

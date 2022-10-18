@@ -60,7 +60,7 @@ class _TransactionsPageWidgetState extends State<TransactionsPageWidget> {
           ),
           onPressed: () async {
             logFirebaseEvent('TRANSACTIONS_arrow_back_rounded_ICN_ON_T');
-            logFirebaseEvent('IconButton_Navigate-Back');
+            logFirebaseEvent('IconButton_navigate_back');
             context.pop();
           },
         ),
@@ -172,7 +172,7 @@ class _TransactionsPageWidgetState extends State<TransactionsPageWidget> {
                             onTap: () async {
                               logFirebaseEvent(
                                   'TRANSACTIONS_Container_e7dfvw89_ON_TAP');
-                              logFirebaseEvent('Container_Navigate-To');
+                              logFirebaseEvent('Container_navigate_to');
 
                               context.pushNamed(
                                 'TransactionDetailPage',

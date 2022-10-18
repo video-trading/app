@@ -68,7 +68,7 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
               ),
               onPressed: () async {
                 logFirebaseEvent('PAYMENT_chevron_left_rounded_ICN_ON_TAP');
-                logFirebaseEvent('IconButton_Navigate-Back');
+                logFirebaseEvent('IconButton_navigate_back');
                 context.pop();
               },
             ),
@@ -204,7 +204,7 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
                       onPressed: () async {
                         logFirebaseEvent(
                             'PAYMENT_PAGE_PAGE_CONFIRM_BTN_ON_TAP');
-                        logFirebaseEvent('Button_Braintree-Payment');
+                        logFirebaseEvent('Button_braintree_payment');
                         final transacAmount = paymentPageVideoRecord.price!;
                         final transacDisplayName = paymentPageVideoRecord.title;
                         if (kIsWeb) {
@@ -247,11 +247,11 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
                         showSnackbar(context, 'Success!');
                         transactionId = paymentResponse.transactionId!;
 
-                        logFirebaseEvent('Button_Custom-Action');
+                        logFirebaseEvent('Button_custom_action');
                         await actions.updateOwner(
                           paymentPageVideoRecord.reference,
                         );
-                        logFirebaseEvent('Button_Backend-Call');
+                        logFirebaseEvent('Button_backend_call');
 
                         final transactionCreateData =
                             createTransactionRecordData(
@@ -261,12 +261,12 @@ class _PaymentPageWidgetState extends State<PaymentPageWidget> {
                           createdAt: getCurrentTimestamp,
                           video: paymentPageVideoRecord.reference,
                           from: currentUserReference,
-                          to: currentUserReference,
+                          to: paymentPageVideoRecord.owner,
                         );
                         await TransactionRecord.collection
                             .doc()
                             .set(transactionCreateData);
-                        logFirebaseEvent('Button_Navigate-To');
+                        logFirebaseEvent('Button_navigate_to');
 
                         context.goNamed('PaymentConfirmPage');
 

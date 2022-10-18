@@ -107,7 +107,7 @@ class _CommentBottomSheetWidgetState extends State<CommentBottomSheetWidget> {
                     ),
                     onPressed: () async {
                       logFirebaseEvent('COMMENT_BOTTOM_SHEET_close_ICN_ON_TAP');
-                      logFirebaseEvent('IconButton_Close-Dialog,-Drawer,-Etc');
+                      logFirebaseEvent('IconButton_close_dialog,_drawer,_etc');
                       Navigator.pop(context);
                     },
                   ),
@@ -313,13 +313,13 @@ class _CommentBottomSheetWidgetState extends State<CommentBottomSheetWidget> {
                                 onPressed: () async {
                                   logFirebaseEvent(
                                       'COMMENT_BOTTOM_SHEET_send_ICN_ON_TAP');
-                                  logFirebaseEvent('IconButton_Validate-Form');
+                                  logFirebaseEvent('IconButton_validate_form');
                                   if (formKey.currentState == null ||
                                       !formKey.currentState!.validate()) {
                                     return;
                                   }
 
-                                  logFirebaseEvent('IconButton_Backend-Call');
+                                  logFirebaseEvent('IconButton_backend_call');
 
                                   final commentCreateData =
                                       createCommentRecordData(
@@ -332,7 +332,7 @@ class _CommentBottomSheetWidgetState extends State<CommentBottomSheetWidget> {
                                       .doc()
                                       .set(commentCreateData);
                                   logFirebaseEvent(
-                                      'IconButton_Clear-Text-Fields');
+                                      'IconButton_clear_text_fields');
                                   setState(() {
                                     textController?.clear();
                                   });

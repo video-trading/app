@@ -91,7 +91,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           logFirebaseEvent('HOME_FloatingActionButton_d7h4q5z5_ON_TA');
-          logFirebaseEvent('FloatingActionButton_Navigate-To');
+          logFirebaseEvent('FloatingActionButton_navigate_to');
 
           context.pushNamed('UploadPage');
         },
@@ -233,7 +233,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             onTap: () async {
                               logFirebaseEvent(
                                   'HOME_PAGE_PAGE_Container_lczeky4n_ON_TAP');
-                              logFirebaseEvent('Container_Navigate-To');
+                              logFirebaseEvent('Container_navigate_to');
 
                               context.pushNamed(
                                 'VideoPage',

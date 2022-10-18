@@ -257,7 +257,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                             onPressed: () async {
                               logFirebaseEvent(
                                   'SIGN_IN_PAGE_PAGE_Button-Login_ON_TAP');
-                              logFirebaseEvent('Button-Login_Auth');
+                              logFirebaseEvent('Button-Login_auth');
                               GoRouter.of(context).prepareAuthEvent();
 
                               final user = await signInWithEmail(
@@ -320,7 +320,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                             onTap: () async {
                               logFirebaseEvent(
                                   'SIGN_IN_Container_6579oqwn_ON_TAP');
-                              logFirebaseEvent('Container_Auth');
+                              logFirebaseEvent('Container_auth');
                               GoRouter.of(context).prepareAuthEvent();
                               final user = await signInWithGoogle(context);
                               if (user == null) {
@@ -356,7 +356,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                             onTap: () async {
                               logFirebaseEvent(
                                   'SIGN_IN_Container_ynm17w2l_ON_TAP');
-                              logFirebaseEvent('Container_Auth');
+                              logFirebaseEvent('Container_auth');
                               GoRouter.of(context).prepareAuthEvent();
                               final user = await signInWithApple(context);
                               if (user == null) {
@@ -451,7 +451,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                             onPressed: () async {
                               logFirebaseEvent(
                                   'SIGN_IN_CREATE_ACCOUNT_BTN_ON_TAP');
-                              logFirebaseEvent('Button_Navigate-To');
+                              logFirebaseEvent('Button_navigate_to');
 
                               context.pushNamed('SignUpPage');
                             },

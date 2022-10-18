@@ -53,7 +53,7 @@ class _MyVideoPageWidgetState extends State<MyVideoPageWidget> {
           ),
           onPressed: () async {
             logFirebaseEvent('MY_VIDEO_arrow_back_rounded_ICN_ON_TAP');
-            logFirebaseEvent('IconButton_Navigate-Back');
+            logFirebaseEvent('IconButton_navigate_back');
             context.pop();
           },
         ),
@@ -153,7 +153,7 @@ class _MyVideoPageWidgetState extends State<MyVideoPageWidget> {
                         onTap: () async {
                           logFirebaseEvent(
                               'MY_VIDEO_Container_y76czutx_ON_TAP');
-                          logFirebaseEvent('Container_Navigate-To');
+                          logFirebaseEvent('Container_navigate_to');
 
                           context.pushNamed(
                             'VideoPage',

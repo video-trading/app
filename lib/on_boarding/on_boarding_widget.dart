@@ -146,7 +146,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
         child: InkWell(
           onTap: () async {
             logFirebaseEvent('ON_BOARDING_PAGE_Column_rlwine0q_ON_TAP');
-            logFirebaseEvent('Column_Navigate-To');
+            logFirebaseEvent('Column_navigate_to');
 
             context.pushNamed('SignInPage');
           },

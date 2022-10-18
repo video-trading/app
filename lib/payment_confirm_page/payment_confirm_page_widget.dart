@@ -128,7 +128,7 @@ class _PaymentConfirmPageWidgetState extends State<PaymentConfirmPageWidget> {
                           onPressed: () async {
                             logFirebaseEvent(
                                 'PAYMENT_CONFIRM_GO_HOME_BTN_ON_TAP');
-                            logFirebaseEvent('Button_Navigate-To');
+                            logFirebaseEvent('Button_navigate_to');
 
                             context.goNamed('HomePage');
                           },

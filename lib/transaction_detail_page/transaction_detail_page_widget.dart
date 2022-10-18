@@ -66,7 +66,7 @@ class _TransactionDetailPageWidgetState
               ),
               onPressed: () async {
                 logFirebaseEvent('TRANSACTION_DETAIL_arrow_back_rounded_IC');
-                logFirebaseEvent('IconButton_Navigate-Back');
+                logFirebaseEvent('IconButton_navigate_back');
                 context.pop();
               },
             ),
