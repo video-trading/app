@@ -336,7 +336,9 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                       builder: (context) {
                         return Padding(
                           padding: MediaQuery.of(context).viewInsets,
-                          child: CommentBottomSheetWidget(),
+                          child: CommentBottomSheetWidget(
+                            video: videoPageVideoRecord.reference,
+                          ),
                         );
                       },
                     ).then((value) => setState(() {}));
