@@ -89,6 +89,7 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                           FlutterFlowVideoPlayer(
                             path: videoPageVideoRecord.video!,
                             videoType: VideoType.network,
+                            aspectRatio: 1.70,
                             autoPlay: false,
                             looping: false,
                             showControls: true,
